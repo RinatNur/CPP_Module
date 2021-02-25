@@ -1,30 +1,25 @@
 #include <iostream>
-#include "contact.class.hpp"
+#include "phonebook.class.hpp"
 
 int		main()
 {
-	std::vector<Contact>		phonebook;
 	std::string 				command;
+	Phonebook					ph_book;
+	std::cout << "**********CRAPPY AWESOME PHONEBOOK**********" << std::endl;
 	for(;;)
 	{
-		std::cout << "Please enter command ADD or SEARCH or EXIT: ";
-		std::cin >> command;
+		std::cout << "Please enter command ADD or SEARCH or EXIT: " << std::endl;
+		std::cout << ">> ";
+		getline(std::cin, command);
+		if (std::cin.eof())
+			return 0;
 		if (command == "EXIT")
 			break ;
 		else if (command == "ADD")
-		{
-			for(int i = 0; i < 11; i++)
-			{
-				phonebook[i].GetValue(phonebook[i], );
-				std::cout << "Enter name: ";
-				getline(std::cin, phonebook[i].first_name);
-
-
-
-			}
-			getline(std::cin, name);
-		}
+			ph_book.AddContact();
+		else if (command == "SEARCH")
+			ph_book.Search();
 	}
-
+	return 0;
 }
 

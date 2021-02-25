@@ -16,30 +16,30 @@ class Contact {
 	std::string 				underwear_color;
 	std::string 				darkest_secret;
 public:
-	void 	SetFirstName(const std::string& name);
-	void 	SetLastName(const std::string& name);
-	void 	SetNickName(const std::string& name);
-	void 	SetLogin(const std::string& log);
-	void 	SetPostalAdress(const std::string& adress);
-	void 	SetEmailAdress(const std::string& adress);
-	void 	SetPhoneNumber(const std::string& num);
-	void 	SetBirthdayDate(const std::string& date);
-	void 	SetFavoriteMeal(const std::string& meal);
-	void 	SetUnderwearColor(const std::string& color);
-	void 	SetDarkestSecret(const std::string& secret);
+	void 	setFirstName(const std::string& name);
+	void 	setLastName(const std::string& name);
+	void 	setNickName(const std::string& name);
+	void 	setLogin(const std::string& log);
+	void 	setPostalAddress(const std::string& address);
+	void 	setEmailAddress(const std::string& address);
+	void 	setPhoneNumber(const std::string& num);
+	void 	setBirthdayDate(const std::string& date);
+	void 	setFavoriteMeal(const std::string& meal);
+	void 	setUnderwearColor(const std::string& color);
+	void 	setDarkestSecret(const std::string& secret);
 
-	std::string 	GetFirstName(void);
-	std::string		GetLastName(void);
-	std::string		GetNickName(void);
-	std::string		GetLogin(void);
-	std::string		GetPostalAdress(void);
-	std::string		GetEmailAdress(void);
-	std::string		GetPhoneNumber(void);
-	std::string		GetBirthdayDate(void);
-	std::string		GetFavoriteMeal(void);
-	std::string		GetUnderwearColor(void);
-	std::string		GetDarkestSecret(void);
-	std::string		GetValue(std::string name, std::string value);
+	std::string 	getFirstName(void);
+	std::string		getLastName(void);
+	std::string		getNickName(void);
+	std::string		getLogin(void);
+	std::string		getPostalAddress(void);
+	std::string		getEmailAddress(void);
+	std::string		getPhoneNumber(void);
+	std::string		getBirthdayDate(void);
+	std::string		getFavoriteMeal(void);
+	std::string		getUnderwearColor(void);
+	std::string		getDarkestSecret(void);
+	std::string		getValue(std::string name, std::string value);
 };
 
 #endif //CONTACT_CLASS_HPP

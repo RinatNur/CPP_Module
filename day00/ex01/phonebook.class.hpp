@@ -5,9 +5,18 @@
 
 class Phonebook{
 public:
+	Phonebook();
+	~Phonebook();
+	void 	AddContact();
+	void 	Search();
+
 
 private:
-	Contact	phonebook[8];
+	int 	num;
+	std::string		getNameWithSpaces(const std::string& str);
+	void 	printContact(int index);
+	void addParam(const std::string& str, void (*func)(const std::string&));
+	Contact	cont[8];
 
 };
 

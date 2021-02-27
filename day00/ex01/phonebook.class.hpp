@@ -13,9 +13,8 @@ public:
 
 private:
 	Contact	_contactList[8];
-	int 	_numberOfContacts;
+	int 	_numberOfContact;
 	std::string		_formatNameToOutput(const std::string& str);
-	void 	printContact(int index);
 
 };
 

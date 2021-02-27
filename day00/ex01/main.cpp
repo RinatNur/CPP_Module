@@ -11,8 +11,8 @@ int		main()
 		std::cout << "Please enter command ADD or SEARCH or EXIT: " << std::endl;
 		std::cout << ">> ";
 		getline(std::cin, command);
-//		if (std::cin.eof())
-//			return 0;
+		if (std::cin.eof())
+			return 0;
 		if (command == "EXIT")
 			break ;
 		else if (command == "ADD")

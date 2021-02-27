@@ -2,7 +2,7 @@
 #include "phonebook.class.hpp"
 #include "contact.class.hpp"
 
-Phonebook::Phonebook() { this->_numberOfContacts = -1; }
+Phonebook::Phonebook() { this->_numberOfContact = -1; }
 
 Phonebook::~Phonebook() {
 
@@ -10,8 +10,8 @@ Phonebook::~Phonebook() {
 
 void Phonebook::AddContact() {
 	std::string		tmp;
-	if (this->_numberOfContacts < 7)
-		this->_numberOfContacts++;
+	if (this->_numberOfContact < 7)
+		this->_numberOfContact++;
 	else
 	{
 		std::cout << "Sorry, the phonebook is full. You can't add a new contact."
@@ -23,67 +23,67 @@ void Phonebook::AddContact() {
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setFirstName(tmp);
+	_contactList[_numberOfContact].setFirstName(tmp);
 
 	std::cout << "Enter last name: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setLastName(tmp);
+	_contactList[_numberOfContact].setLastName(tmp);
 
 	std::cout << "Enter nickname: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setNickName(tmp);
+	_contactList[_numberOfContact].setNickName(tmp);
 
 	std::cout << "Enter login: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setLogin(tmp);
+	_contactList[_numberOfContact].setLogin(tmp);
 
 	std::cout << "Enter postal address: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setPostalAddress(tmp);
+	_contactList[_numberOfContact].setPostalAddress(tmp);
 
 	std::cout << "Enter email address: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setEmailAddress(tmp);
+	_contactList[_numberOfContact].setEmailAddress(tmp);
 
 	std::cout << "Enter phone number: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setPhoneNumber(tmp);
+	_contactList[_numberOfContact].setPhoneNumber(tmp);
 
 	std::cout << "Enter birthday date: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setBirthdayDate(tmp);
+	_contactList[_numberOfContact].setBirthdayDate(tmp);
 
 	std::cout << "Enter favorite meal: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setFavoriteMeal(tmp);
+	_contactList[_numberOfContact].setFavoriteMeal(tmp);
 
 	std::cout << "Enter underwear color: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setUnderwearColor(tmp);
+	_contactList[_numberOfContact].setUnderwearColor(tmp);
 
 	std::cout << "Enter darkest secret: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	_contactList[_numberOfContacts].setDarkestSecret(tmp);
+	_contactList[_numberOfContact].setDarkestSecret(tmp);
 
 	std::cout << "Contact successfully added!" << std::endl << std::endl;
 }
@@ -112,12 +112,12 @@ void Phonebook::Search() {
 	using std::cout;
 	using std::endl;
 
-	if (this->_numberOfContacts < 0) {
+	if (this->_numberOfContact < 0) {
 		cout << "Sorry, the phonebook is empty" << endl << endl;
 		return;
 	}
 	cout << "     index|first name| last name|  _nickname" << endl;
-	for (int i = 0; i <= this->_numberOfContacts; i++)
+	for (int i = 0; i <= this->_numberOfContact; i++)
 	{
 		cout << "         " << i << "|";
 		cout << this->_formatNameToOutput(_contactList[i].getFirstName()) << "|";
@@ -129,26 +129,10 @@ void Phonebook::Search() {
 	getline(std::cin, index);
 	if (index.size() == 1
 		&& (0 <= (index[0] + '0')
-		&& (index[0] - '0') <= _numberOfContacts))
-		printContact(index[0] - '0');
+		&& (index[0] - '0') <= _numberOfContact))
+		_contactList[index[0] - '0'].printContact(index[0] - '0', _contactList[index[0] - '0']);
 	else
 		cout << "Index isn't correct!" << endl;
 	cout << endl;
 }
 
-void Phonebook::printContact(int index) {
-	using std::cout;
-	using std::endl;
-
-	cout << "     First name: " << _contactList[index].getFirstName() << endl;
-	cout << "      Last name: " << _contactList[index].getLastName() << endl;
-	cout << "       Nickname: " << _contactList[index].getNickName() << endl;
-	cout << "          Login: " << _contactList[index].getLogin() << endl;
-	cout << " Postal address: " << _contactList[index].getPostalAddress() << endl;
-	cout << "  Email address: " << _contactList[index].getEmailAddress() << endl;
-	cout << "   Phone number: " << _contactList[index].getPhoneNumber() << endl;
-	cout << "  Birthday date: " << _contactList[index].getBirthdayDate() << endl;
-	cout << "  Favorite meal: " << _contactList[index].getFavoriteMeal() << endl;
-	cout << "Underwear color: " << _contactList[index].getUnderwearColor() << endl;
-	cout << " Darkest secret: " << _contactList[index].getDarkestSecret() << endl;
-}

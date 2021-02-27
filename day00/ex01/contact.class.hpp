@@ -16,7 +16,8 @@ class Contact {
 	std::string 				_underwear_color;
 	std::string 				_darkest_secret;
 public:
-//	void 	printContact(int index);
+	void 	printContact(int index, Contact& contact);
+
 	void 	setFirstName(const std::string& name);
 	void 	setLastName(const std::string& name);
 	void 	setNickName(const std::string& name);

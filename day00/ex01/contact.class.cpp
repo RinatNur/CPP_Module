@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include "contact.class.hpp"
 
@@ -25,19 +26,19 @@ std::string Contact::getFavoriteMeal(void) { return _favorite_meal; }
 std::string Contact::getUnderwearColor(void) { return _underwear_color; }
 std::string Contact::getDarkestSecret(void) { return _darkest_secret; }
 
-//void Phonebook::printContact(int index) {
-//	using std::cout;
-//	using std::endl;
-//
-//	cout << "     First name: " << _contactList[index].getFirstName() << endl;
-//	cout << "      Last name: " << _contactList[index].getLastName() << endl;
-//	cout << "       Nickname: " << _contactList[index].getNickName() << endl;
-//	cout << "          Login: " << _contactList[index].getLogin() << endl;
-//	cout << " Postal address: " << _contactList[index].getPostalAddress() << endl;
-//	cout << "  Email address: " << _contactList[index].getEmailAddress() << endl;
-//	cout << "   Phone number: " << _contactList[index].getPhoneNumber() << endl;
-//	cout << "  Birthday date: " << _contactList[index].getBirthdayDate() << endl;
-//	cout << "  Favorite meal: " << _contactList[index].getFavoriteMeal() << endl;
-//	cout << "Underwear color: " << _contactList[index].getUnderwearColor() << endl;
-//	cout << " Darkest secret: " << _contactList[index].getDarkestSecret() << endl;
-//}
+void Contact::printContact(int index, Contact& contact) {
+	using std::cout;
+	using std::endl;
+
+	cout << "     First name: " << contact.getFirstName() << endl;
+	cout << "      Last name: " << contact.getLastName() << endl;
+	cout << "       Nickname: " << contact.getNickName() << endl;
+	cout << "          Login: " << contact.getLogin() << endl;
+	cout << " Postal address: " << contact.getPostalAddress() << endl;
+	cout << "  Email address: " << contact.getEmailAddress() << endl;
+	cout << "   Phone number: " << contact.getPhoneNumber() << endl;
+	cout << "  Birthday date: " << contact.getBirthdayDate() << endl;
+	cout << "  Favorite meal: " << contact.getFavoriteMeal() << endl;
+	cout << "Underwear color: " << contact.getUnderwearColor() << endl;
+	cout << " Darkest secret: " << contact.getDarkestSecret() << endl;
+}

@@ -2,31 +2,19 @@
 #include "phonebook.class.hpp"
 #include "contact.class.hpp"
 
-Phonebook::Phonebook() { this->num = -1; }
+Phonebook::Phonebook() { this->_numberOfContacts = -1; }
 
 Phonebook::~Phonebook() {
 
 }
 
-void Phonebook::addParam(const std::string& str, void (*func)(const std::string&))
-{
-	std::string		tmp;
-
-	std::cout << str;
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	func(tmp);
-//	ph[num] = func(tmp);
-}
-
 void Phonebook::AddContact() {
 	std::string		tmp;
-	if (this->num <= 7)
-		this->num++;
+	if (this->_numberOfContacts < 7)
+		this->_numberOfContacts++;
 	else
 	{
-		std::cout << "Sorry, the cont is full. You can't add a new contact."
+		std::cout << "Sorry, the phonebook is full. You can't add a new contact."
 			<< std::endl;
 		return;
 	}
@@ -35,73 +23,74 @@ void Phonebook::AddContact() {
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setFirstName(tmp);
+	_contactList[_numberOfContacts].setFirstName(tmp);
 
 	std::cout << "Enter last name: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setLastName(tmp);
+	_contactList[_numberOfContacts].setLastName(tmp);
 
 	std::cout << "Enter nickname: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setNickName(tmp);
-//
+	_contactList[_numberOfContacts].setNickName(tmp);
+
 	std::cout << "Enter login: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setLogin(tmp);
+	_contactList[_numberOfContacts].setLogin(tmp);
 
 	std::cout << "Enter postal address: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setPostalAddress(tmp);
+	_contactList[_numberOfContacts].setPostalAddress(tmp);
 
 	std::cout << "Enter email address: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setEmailAddress(tmp);
+	_contactList[_numberOfContacts].setEmailAddress(tmp);
 
 	std::cout << "Enter phone number: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setPhoneNumber(tmp);
+	_contactList[_numberOfContacts].setPhoneNumber(tmp);
 
 	std::cout << "Enter birthday date: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setBirthdayDate(tmp);
+	_contactList[_numberOfContacts].setBirthdayDate(tmp);
 
 	std::cout << "Enter favorite meal: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setFavoriteMeal(tmp);
+	_contactList[_numberOfContacts].setFavoriteMeal(tmp);
 
 	std::cout << "Enter underwear color: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setUnderwearColor(tmp);
+	_contactList[_numberOfContacts].setUnderwearColor(tmp);
 
 	std::cout << "Enter darkest secret: ";
 	getline(std::cin, tmp);
 	if (std::cin.eof())
 		return;
-	cont[num].setDarkestSecret(tmp);
+	_contactList[_numberOfContacts].setDarkestSecret(tmp);
+
 	std::cout << "Contact successfully added!" << std::endl << std::endl;
 }
 
-std::string Phonebook::getNameWithSpaces(const std::string &str) {
-	std::string 	str_to_print;
-	int 	len = str.size();
+std::string Phonebook::_formatNameToOutput(const std::string &str) {
+	std::string		str_to_print;
+	int				len = str.size();
 
 	if (len > 10)
 	{
@@ -122,43 +111,44 @@ std::string Phonebook::getNameWithSpaces(const std::string &str) {
 void Phonebook::Search() {
 	using std::cout;
 	using std::endl;
-	if (this->num < 0) {
+
+	if (this->_numberOfContacts < 0) {
 		cout << "Sorry, the phonebook is empty" << endl << endl;
 		return;
 	}
-	cout << "     index|first name| last name|  nickname" << endl;
-	for (int i = 0; i <= this->num; i++)
+	cout << "     index|first name| last name|  _nickname" << endl;
+	for (int i = 0; i <= this->_numberOfContacts; i++)
 	{
 		cout << "         " << i << "|";
-		cout << this->getNameWithSpaces(cont[i].getFirstName()) << "|";
-		cout << this->getNameWithSpaces(cont[i].getLastName()) << "|";
-		cout << this->getNameWithSpaces(cont[i].getNickName()) << endl;
+		cout << this->_formatNameToOutput(_contactList[i].getFirstName()) << "|";
+		cout << this->_formatNameToOutput(_contactList[i].getLastName()) << "|";
+		cout << this->_formatNameToOutput(_contactList[i].getNickName()) << endl;
 	}
 	cout << "Please, enter index of contact: ";
-	int 	index;
-	std::cin >> index;
-	printContact(index);
-
-
+	std::string 	index;
+	getline(std::cin, index);
+	if (index.size() == 1
+		&& (0 <= (index[0] + '0')
+		&& (index[0] - '0') <= _numberOfContacts))
+		printContact(index[0] - '0');
+	else
+		cout << "Index isn't correct!" << endl;
+	cout << endl;
 }
 
 void Phonebook::printContact(int index) {
 	using std::cout;
 	using std::endl;
 
-	cout << "     First name: " << cont[index].getFirstName() << endl;
-	cout << "      Last name: " << cont[index].getLastName() << endl;
-	cout << "       Nickname: " << cont[index].getNickName() << endl;
-	cout << "          Login: " << cont[index].getLogin() << endl;
-	cout << " Postal address: " << cont[index].getPostalAddress() << endl;
-	cout << "  Email address: " << cont[index].getEmailAddress() << endl;
-	cout << "   Phone number: " << cont[index].getPhoneNumber() << endl;
-	cout << "  Birthday date: " << cont[index].getBirthdayDate() << endl;
-	cout << "  Favorite meal: " << cont[index].getFavoriteMeal() << endl;
-	cout << "Underwear color: " << cont[index].getUnderwearColor() << endl;
-	cout << " Darkest secret: " << cont[index].getDarkestSecret() << endl;
-
+	cout << "     First name: " << _contactList[index].getFirstName() << endl;
+	cout << "      Last name: " << _contactList[index].getLastName() << endl;
+	cout << "       Nickname: " << _contactList[index].getNickName() << endl;
+	cout << "          Login: " << _contactList[index].getLogin() << endl;
+	cout << " Postal address: " << _contactList[index].getPostalAddress() << endl;
+	cout << "  Email address: " << _contactList[index].getEmailAddress() << endl;
+	cout << "   Phone number: " << _contactList[index].getPhoneNumber() << endl;
+	cout << "  Birthday date: " << _contactList[index].getBirthdayDate() << endl;
+	cout << "  Favorite meal: " << _contactList[index].getFavoriteMeal() << endl;
+	cout << "Underwear color: " << _contactList[index].getUnderwearColor() << endl;
+	cout << " Darkest secret: " << _contactList[index].getDarkestSecret() << endl;
 }
-
-
-

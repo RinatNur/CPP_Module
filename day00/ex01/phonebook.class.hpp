@@ -12,11 +12,10 @@ public:
 
 
 private:
-	int 	num;
-	std::string		getNameWithSpaces(const std::string& str);
+	Contact	_contactList[8];
+	int 	_numberOfContacts;
+	std::string		_formatNameToOutput(const std::string& str);
 	void 	printContact(int index);
-	void addParam(const std::string& str, void (*func)(const std::string&));
-	Contact	cont[8];
 
 };
 

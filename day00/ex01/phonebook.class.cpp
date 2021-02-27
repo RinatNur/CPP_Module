@@ -4,8 +4,12 @@
 
 Phonebook::Phonebook() { this->_numberOfContact = -1; }
 
-Phonebook::~Phonebook() {
+std::string Phonebook::_enterFieldToPhonebook(const std::string &str) {
+	std::string 	tmp;
 
+	std::cout << "Enter " << str << ": ";
+	getline(std::cin, tmp);
+	return tmp;
 }
 
 void Phonebook::AddContact() {
@@ -19,71 +23,11 @@ void Phonebook::AddContact() {
 		return;
 	}
 
-	std::cout << "Enter first name: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setFirstName(tmp);
-
-	std::cout << "Enter last name: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setLastName(tmp);
-
-	std::cout << "Enter nickname: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setNickName(tmp);
-
-	std::cout << "Enter login: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setLogin(tmp);
-
-	std::cout << "Enter postal address: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setPostalAddress(tmp);
-
-	std::cout << "Enter email address: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setEmailAddress(tmp);
-
-	std::cout << "Enter phone number: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setPhoneNumber(tmp);
-
-	std::cout << "Enter birthday date: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setBirthdayDate(tmp);
-
-	std::cout << "Enter favorite meal: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setFavoriteMeal(tmp);
-
-	std::cout << "Enter underwear color: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setUnderwearColor(tmp);
-
-	std::cout << "Enter darkest secret: ";
-	getline(std::cin, tmp);
-	if (std::cin.eof())
-		return;
-	_contactList[_numberOfContact].setDarkestSecret(tmp);
+	for (int i = 0; i < 11; ++i)
+	{
+		tmp = _enterFieldToPhonebook(_contactList[_numberOfContact]._fields_in_contact[i]);
+		_contactList[_numberOfContact].setFieldInContact(_contactList[_numberOfContact]._fields_in_contact[i], tmp);
+	}
 
 	std::cout << "Contact successfully added!" << std::endl << std::endl;
 }
@@ -116,23 +60,26 @@ void Phonebook::Search() {
 		cout << "Sorry, the phonebook is empty" << endl << endl;
 		return;
 	}
-	cout << "     index|first name| last name|  _nickname" << endl;
+cout << "     index|first name| last name|  nickname" << endl;
 	for (int i = 0; i <= this->_numberOfContact; i++)
 	{
 		cout << "         " << i << "|";
-		cout << this->_formatNameToOutput(_contactList[i].getFirstName()) << "|";
-		cout << this->_formatNameToOutput(_contactList[i].getLastName()) << "|";
-		cout << this->_formatNameToOutput(_contactList[i].getNickName()) << endl;
+		cout << this->_formatNameToOutput(_contactList[i].getFieldValue("first name")) << "|";
+		cout << this->_formatNameToOutput(_contactList[i].getFieldValue("last name")) << "|";
+cout << this->_formatNameToOutput(_contactList[i].getFieldValue("nickname")) << endl;
 	}
-	cout << "Please, enter index of contact: ";
-	std::string 	index;
-	getline(std::cin, index);
-	if (index.size() == 1
-		&& (0 <= (index[0] + '0')
-		&& (index[0] - '0') <= _numberOfContact))
-		_contactList[index[0] - '0'].printContact(index[0] - '0', _contactList[index[0] - '0']);
+	cout << "Please, enter index_str of contact: ";
+	std::string 	index_str;
+	int 			index_int;
+	getline(std::cin, index_str);
+	index_int = index_str[0] - '0';
+	if (index_str.size() == 1
+		&& (0 <= (index_int)
+		&& (index_int) <= _numberOfContact))
+		_contactList[index_int].printContact(index_int, _contactList[index_int]);
 	else
 		cout << "Index isn't correct!" << endl;
 	cout << endl;
 }
+
 

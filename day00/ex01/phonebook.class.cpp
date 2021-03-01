@@ -2,14 +2,31 @@
 #include "phonebook.class.hpp"
 #include "contact.class.hpp"
 
-Phonebook::Phonebook() { this->_numberOfContact = -1; }
+Phonebook::Phonebook() {
+	this->_numberOfContact = -1;
+	_initKeysOfFieldsList();
+}
 
-std::string Phonebook::_enterFieldToPhonebook(const std::string &str) {
-	std::string 	tmp;
+void Phonebook::_initKeysOfFieldsList() {
+	_keysOfFieldsList[0] = "first name";
+	_keysOfFieldsList[1] = "last name";
+	_keysOfFieldsList[2] = "nickname";
+	_keysOfFieldsList[3] = "login";
+	_keysOfFieldsList[4] = "postal address";
+	_keysOfFieldsList[5] = "email_address";
+	_keysOfFieldsList[6] = "phone number";
+	_keysOfFieldsList[7] = "birthday date";
+	_keysOfFieldsList[8] = "favorite meal";
+	_keysOfFieldsList[9] = "underwear color";
+	_keysOfFieldsList[10] = "darkest secret";
+}
 
-	std::cout << "Enter " << str << ": ";
-	getline(std::cin, tmp);
-	return tmp;
+void Phonebook::_readValuesOfContactFromInput() {
+	for (int i = 0; i < 11; ++i)
+	{
+		std::cout << "Enter " << _keysOfFieldsList[i] << ": ";
+		getline(std::cin, _valuesOfFieldsList[i]);
+	}
 }
 
 void Phonebook::AddContact() {
@@ -22,12 +39,8 @@ void Phonebook::AddContact() {
 			<< std::endl;
 		return;
 	}
-
-	for (int i = 0; i < 11; ++i)
-	{
-		tmp = _enterFieldToPhonebook(_contactList[_numberOfContact]._fields_in_contact[i]);
-		_contactList[_numberOfContact].setFieldInContact(_contactList[_numberOfContact]._fields_in_contact[i], tmp);
-	}
+	_readValuesOfContactFromInput();
+	_contactList[_numberOfContact].setContactValues(_valuesOfFieldsList);
 
 	std::cout << "Contact successfully added!" << std::endl << std::endl;
 }
@@ -53,33 +66,29 @@ std::string Phonebook::_formatNameToOutput(const std::string &str) {
 }
 
 void Phonebook::Search() {
-	using std::cout;
-	using std::endl;
-
 	if (this->_numberOfContact < 0) {
-		cout << "Sorry, the phonebook is empty" << endl << endl;
+		std::cout << "Sorry, the phonebook is empty" << std::endl << std::endl;
 		return;
 	}
-cout << "     index|first name| last name|  nickname" << endl;
+	std::cout << "     index|first name| last name|  nickname" << std::endl;
 	for (int i = 0; i <= this->_numberOfContact; i++)
 	{
-		cout << "         " << i << "|";
-		cout << this->_formatNameToOutput(_contactList[i].getFieldValue("first name")) << "|";
-		cout << this->_formatNameToOutput(_contactList[i].getFieldValue("last name")) << "|";
-cout << this->_formatNameToOutput(_contactList[i].getFieldValue("nickname")) << endl;
+		std::cout << "         " << i << "|";
+		std::cout << this->_formatNameToOutput(_contactList[i].getFirstName()) << "|";
+		std::cout << this->_formatNameToOutput(_contactList[i].getLastName()) << "|";
+		std::cout << this->_formatNameToOutput(_contactList[i].getNickName()) << std::endl;
 	}
-	cout << "Please, enter index_str of contact: ";
-	std::string 	index_str;
-	int 			index_int;
-	getline(std::cin, index_str);
-	index_int = index_str[0] - '0';
-	if (index_str.size() == 1
-		&& (0 <= (index_int)
-		&& (index_int) <= _numberOfContact))
-		_contactList[index_int].printContact(index_int, _contactList[index_int]);
+	std::cout << "Please, enter index of contact: ";
+	std::string 	index;
+	getline(std::cin, index);
+	if (index.size() == 1
+		&& (0 <= (index[0] + '0')
+		&& (index[0] - '0') <= _numberOfContact))
+		_contactList[index[0] - '0'].printContact(_contactList[index[0] - '0']);
 	else
-		cout << "Index isn't correct!" << endl;
-	cout << endl;
+		std::cout << "Index isn't correct!" << std::endl;
+	std::cout << std::endl;
 }
+
 
 

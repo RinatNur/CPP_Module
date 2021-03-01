@@ -4,10 +4,7 @@ SRC = megaphone.cpp
 
 OBJ = $(patsubst %.cpp,%.o,$(SRC))
 
-HEADER =    minishell.h ./functional/processing.h ./gnl/get_next_line.h\
-            ./parser/parse.h
-
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
@@ -17,9 +14,11 @@ $(NAME): $(OBJ)
 clean:
 	@rm -f $(OBJ)
 
+mclean: all clean
+
 fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re mclean

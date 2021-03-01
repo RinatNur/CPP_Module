@@ -1,17 +1,17 @@
 NAME = phonebook
 
-SRC =  main.cpp contact.class.cpp phonebook.class.cpp
+SRC =  main.cpp Contact.cpp Phonebook.cpp
 
 OBJ = $(patsubst %.cpp,%.o,$(SRC))
 
-HEADER =  contact.class.hpp phonebook.class.hpp
+HEADER =  Contact.hpp Phonebook.hpp
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@gcc $(FLAGS) $(SRC) -o $(NAME)
+	@clang++ $(FLAGS) $(SRC) -o $(NAME)
 
 %.o: %.c $(HEADER)
 	gcc $(FLAGS) -c $< -o $@
@@ -24,6 +24,6 @@ fclean: clean
 
 re: fclean all
 
-make_clean: all clean
+mclean: all clean
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re mclean

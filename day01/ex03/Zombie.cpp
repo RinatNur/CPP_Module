@@ -5,6 +5,8 @@
 #include <iostream>
 #include "Zombie.hpp"
 
+//TODO Zombie constructor is not used;
+
 Zombie::Zombie() {
 	std::cout << "New zombie created" << std::endl;
 	_zombie_type = _zombie_name = "";

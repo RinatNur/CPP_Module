@@ -14,6 +14,6 @@ std::string Brain::identify() const{
 }
 
 Brain::Brain() {
-	szIq = 99;
-	weight = 2;
+	nIq = 99;
+	nWeight = 2;
 }

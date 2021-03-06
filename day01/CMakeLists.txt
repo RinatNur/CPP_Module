@@ -20,5 +20,10 @@ add_executable(day01
 #        ex03/ZombieHorde.cpp
 #        ex03/ZombieHorde.hpp
 #        ex03/main.cpp
-        ex04/ex04.cpp
+#        ex04/ex04.cpp
+        ex05/Human.cpp
+        ex05/Human.hpp
+        ex05/Brain.hpp
+        ex05/Brain.cpp
+        ex05/main.cpp
         )

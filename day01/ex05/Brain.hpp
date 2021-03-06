@@ -2,14 +2,15 @@
 // Created by Rinat Nurutdinow on 3/4/21.
 //
 
-#ifndef DAY01_BRAIN_H
-#define DAY01_BRAIN_H
+#ifndef _BRAIN_H
+#define _BRAIN_H
 
 #include <string>
 
 class Brain {
 public:
 	Brain();
+
 	std::string identify() const;
 private:
 	int 	nIq;
@@ -17,4 +18,4 @@ private:
 };
 
 
-#endif //DAY01_BRAIN_H
+#endif //_BRAIN_H

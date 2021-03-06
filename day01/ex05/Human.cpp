@@ -4,19 +4,10 @@
 
 #include "Human.hpp"
 
-Human::Human() {
-
-}
-
-Human::~Human() {
-
-}
-
-std::string Human::identify(){
+std::string Human::identify() const{
 	return _head.identify();
 }
 
-const Brain& Human::getBrain() {
+const Brain& Human::getBrain() const{
 	return _head;
 }
-

@@ -1,10 +1,6 @@
-#include <iostream>
-#include <sstream>
-#include <fstream>
 #include "Weapon.hpp"
 #include "HumanA.hpp"
-#include <unistd.h>
-#include "Humanb.hpp"
+#include "HumanB.hpp"
 
 int 	main()
 {
@@ -16,11 +12,11 @@ int 	main()
 		bob.attack();
 	}
 	{
-//		Weapon club = Weapon("crude spiked club");
-//		HumanB jim("Jim");
-//		jim.setWeapon(club);
-//		jim.attack();
-//		club.setType("some other type of club");
-//		jim.attack();
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
 	}
 }

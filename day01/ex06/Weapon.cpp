@@ -5,23 +5,19 @@
 #include "Weapon.hpp"
 
 std::string Weapon::getType() {
-	return this->szType;
+	return this->_szType;
 }
 
-Weapon::Weapon(std::string str) : szType(str) {
+Weapon::Weapon(std::string str) : _szType(str) {
 
 }
 
 void Weapon::setType(const std::string &type) {
-	this->szType = type;
+	this->_szType = type;
 }
 
-//Weapon::Weapon(const Weapon &copy) : szType(copy.szType)
-//{
-//}
-
-//Weapon &Weapon::operator=(const Weapon &copy)
-//{
-//	szType = copy.szType;
-//	return *this;
-//}
+Weapon& Weapon::operator=(Weapon const &copy)
+{
+	_szType = copy._szType;
+	return (*this);
+}

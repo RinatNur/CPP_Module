@@ -8,15 +8,14 @@
 #include <string>
 
 class Weapon {
-private:
-	std::string		&szType;
-
 public:
 	Weapon(std::string str);
-	//Weapon(const Weapon &copy);
+
 	void 			setType(const std::string &type);
 	std::string 	getType();
-	Weapon &operator=(const Weapon &copy);
+	Weapon& operator=(Weapon const &copy);
+private:
+	std::string		_szType;
 };
 
 

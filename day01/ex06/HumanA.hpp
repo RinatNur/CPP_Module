@@ -14,8 +14,8 @@ public:
 
 	void 	attack();
 private:
-	Weapon		&szType;
-	std::string szName;
+	Weapon		&_WeaponA;
+	std::string _szName;
 
 };
 

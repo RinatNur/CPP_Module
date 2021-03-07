@@ -4,25 +4,20 @@
 
 #include "HumanB.hpp"
 
-//void HumanB::attack() {
-//	std::cout << szName << " attacks with his " << szType.getType()
-//			  << std::endl;
-//}
-//
-//HumanB::HumanB(const std::string& name) {
-////	this->setWeapon(this->szType);
-//	this->szName = name;
-//}
-//
-//void HumanB::setWeapon(const Weapon &type) {
-//	this->szType = type;
-//}
-//
-//HumanB::HumanB() {
-//
-//}
-//
-//HumanB::HumanB(const std::string &name) : szType(szType.setType("wd")) {
-//	this->szName = name;
-//}
+HumanB::HumanB(const std::string& name){
+	this->_szName = name;
+	_WeaponB = NULL;
+}
+
+void HumanB::attack() {
+	std::cout << _szName << " attacks with his " << _WeaponB->getType()
+			  << std::endl;
+}
+
+void HumanB::setWeapon(Weapon &type){
+	_WeaponB = &type;
+}
+
+
+
 

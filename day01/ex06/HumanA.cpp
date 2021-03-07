@@ -5,10 +5,10 @@
 #include "HumanA.hpp"
 
 void HumanA::attack() {
-	std::cout << szName << " attacks with his " << szType.getType()
-		<< std::endl;
+	std::cout << _szName << " attacks with his " << _WeaponA.getType()
+			  << std::endl;
 }
 
-HumanA::HumanA(const std::string &name, Weapon &Type) : szType(Type) {
-	this->szName = name;
+HumanA::HumanA(const std::string &name, Weapon &Type) : _WeaponA(Type) {
+	this->_szName = name;
 }

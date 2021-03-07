@@ -8,10 +8,20 @@ std::string Weapon::getType() {
 	return this->szType;
 }
 
-Weapon::Weapon(std::string str) : szType(str){
+Weapon::Weapon(std::string str) : szType(str) {
 
 }
 
-void Weapon::setType(std::string type) {
+void Weapon::setType(const std::string &type) {
 	this->szType = type;
 }
+
+//Weapon::Weapon(const Weapon &copy) : szType(copy.szType)
+//{
+//}
+
+//Weapon &Weapon::operator=(const Weapon &copy)
+//{
+//	szType = copy.szType;
+//	return *this;
+//}

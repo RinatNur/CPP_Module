@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Weapon.hpp"
 #include "HumanA.hpp"
+#include <unistd.h>
 #include "Humanb.hpp"
 
 int 	main()
@@ -16,7 +17,7 @@ int 	main()
 	}
 	{
 //		Weapon club = Weapon("crude spiked club");
-//		HumanB jim("Jim", Weapon(__1::basic_string()));
+//		HumanB jim("Jim");
 //		jim.setWeapon(club);
 //		jim.attack();
 //		club.setType("some other type of club");

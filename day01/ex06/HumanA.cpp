@@ -9,6 +9,6 @@ void HumanA::attack() {
 		<< std::endl;
 }
 
-HumanA::HumanA(std::string name, Weapon szType) : szType(szType) {
+HumanA::HumanA(const std::string &name, Weapon &Type) : szType(Type) {
 	this->szName = name;
 }

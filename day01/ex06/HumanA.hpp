@@ -10,14 +10,13 @@
 
 class HumanA {
 public:
-	HumanA(std::string name, Weapon szType);
+	HumanA(const std::string &name, Weapon &szType);
 
 	void 	attack();
 private:
-	Weapon		szType;
+	Weapon		&szType;
 	std::string szName;
 
 };
-
 
 #endif //_HUMANA_H

@@ -10,6 +10,6 @@ int 	main(void)
 	Pony::ponyOnTheHeap();
 	std::cout << std::endl;
 	Pony::ponyOnTheStack();
-
+	std::cout << "End of the program!" << std::endl;
 	return 0;
 }

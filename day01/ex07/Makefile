@@ -17,7 +17,6 @@ clean:
 mclean: all clean
 
 fclean: clean
-	@rm test.replace
 	@rm -f $(NAME)
 
 re: fclean all

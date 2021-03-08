@@ -8,9 +8,9 @@
 #include "Pony.hpp"
 
 Pony::Pony(const std::string& s1, const std::string& s2, const std::string& s3) {
-	this->name = s1;
-	age = s2;
-	color = s3;
+	this->_szName = s1;
+	_szAge = s2;
+	_szColor = s3;
 	std::cout << "Pony was born (object constructed)!" << std::endl;
 }
 
@@ -20,32 +20,32 @@ Pony::~Pony() {
 
 void Pony::ponyOnTheHeap() {
 	Pony*	burak = new Pony("Burak", "2", "black");
-	burak->presentation();
+	burak->_presentation();
 	usleep(500000);
-	burak->run();
+	burak->_run();
 	delete burak;
 }
 
 void Pony::ponyOnTheStack() {
 	Pony	burak("Laguna", "3", "mare");
-	burak.presentation();
+	burak._presentation();
 	usleep(500000);
-	burak.run();
+	burak._run();
 }
 
-void Pony::run() {
+void Pony::_run() {
 	std::string 	space;
 	for(int i = 0; i < 5; ++i)
 	{
-		std::cout << space << name[0] << std::endl;
+		std::cout << space << _szName[0] << std::endl;
 		usleep(500000);
 		space += "   ";
 	}
 }
 
-void Pony::presentation() {
-	std::cout << "After " << age << " years..."
-		<< std::endl << "Hi, this is " << name << "! It is " << age << " years old!"
-		<< std::endl << "It color is " << color << ". Look how fast it running!"
+void Pony::_presentation() {
+	std::cout << "After " << _szAge << " years..."
+		<< std::endl << "Hi, this is " << _szName << "! It is " << _szAge << " years old!"
+		<< std::endl << "It color is " << _szColor << ". Look how fast it running!"
 		<< std::endl;
 }

@@ -9,8 +9,7 @@
 
 std::string Brain::identify() const{
 	std::stringstream address;
-	address.str(this);
-//	address << this;
+	address << this;
 	return (address.str());
 }
 

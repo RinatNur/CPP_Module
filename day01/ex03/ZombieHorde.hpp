@@ -14,7 +14,7 @@ public:
 
 	void		announce();
 private:
-	Zombie		*_zombies_army;
+	Zombie*		_zombies_army;
 	int			_num_of_zombies;
 };
 

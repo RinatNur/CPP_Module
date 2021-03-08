@@ -6,7 +6,7 @@
 #include "Zombie.hpp"
 #include "ZombieEvent.hpp"
 
-Zombie *randomChump(int name_len) {
+void randomChump(int name_len) {
 	std::string 	random_name;
 	const char	alphabet[] = "abcdefghijklmnopqrstuvwxyz";
 	random_name.reserve(name_len);
@@ -20,14 +20,13 @@ Zombie *randomChump(int name_len) {
 	random_type += zombie_types_arr[rand() % (zombie_types_arr->size() - 1)];
 	Zombie		random_zombie(random_name, random_type);
 	random_zombie.announce();
-	return &(random_zombie);
 }
 
 int 	main(void)
 {
 	ZombieEvent		first_z;
 	first_z.setZombieType("vampir");
-	Zombie*          zombie1 = first_z.newZombie("Gleb");
+	Zombie*			zombie1 = first_z.newZombie("Gleb");
 	zombie1->announce();
 	delete zombie1;
 	std::cout << std::endl;
@@ -39,7 +38,6 @@ int 	main(void)
 	zombie2->announce();
 	delete zombie2;
 	std::cout << std::endl;
-
 
 	std::cout << "End of the program!" << std::endl;
 	return 0;

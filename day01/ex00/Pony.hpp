@@ -15,11 +15,11 @@ public:
 	void static		ponyOnTheHeap();
 	void static		ponyOnTheStack();
 private:
-	std::string		name;
-	std::string		age;
-	std::string		color;
-	void 			presentation();
-	void 			run();
+	std::string		_szName;
+	std::string		_szAge;
+	std::string		_szColor;
+	void 			_presentation();
+	void 			_run();
 };
 
 

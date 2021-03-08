@@ -15,7 +15,7 @@ public:
 	void setWeapon(Weapon& type) ;
 	void 	attack();
 private:
-	Weapon		*_WeaponB;
+	Weapon*		_WeaponB;
 	std::string _szName;
 
 };

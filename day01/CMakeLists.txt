@@ -26,8 +26,9 @@ add_executable(day01
 #        ex05/Brain.hpp
 #        ex05/Brain.cpp
 #        ex05/main.cpp
-        ex06/Weapon.cpp
-        ex06/HumanA.cpp
-        ex06/HumanB.cpp
-        ex06/main.cpp
+#        ex06/Weapon.cpp
+#        ex06/HumanA.cpp
+#        ex06/HumanB.cpp
+#        ex06/main.cpp
+        ex07/main.cpp
         )

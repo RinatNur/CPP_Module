@@ -1,6 +1,6 @@
 NAME = replace
 
-SRC =  main.cpp
+SRC = main.cpp
 
 OBJ = $(patsubst %.cpp,%.o,$(SRC))
 
@@ -11,17 +11,16 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@clang++ $(FLAGS) $(SRC) -o $(NAME)
 
-#%.o: %.c $(HEADER)
-#	gcc $(FLAGS) -c $< -o $@
-
 clean:
 	@rm -f $(OBJ)
 
+mclean: all clean
+
 fclean: clean
+	@rm test.replace
 	@rm -f $(NAME)
 
 re: fclean all
 
-mclean: all clean
-
 .PHONY: all clean fclean re mclean
+

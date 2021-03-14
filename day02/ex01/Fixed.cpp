@@ -4,25 +4,44 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _nnumOfFractionalBeats(8) {
+Fixed::Fixed() : _nNumOfBits(8) {
 	std::cout << "Default constructor called" << std::endl;
 	this->_nfixedPointValue = 0;
+}
+
+Fixed::Fixed(const Fixed& copy_obj)
+	: _nNumOfBits(copy_obj._nNumOfBits){
+	std::cout << "Copy constructor called" << std::endl;
+	operator=(copy_obj);
 }
 
 Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed& copy_class)
-	: _nnumOfFractionalBeats(copy_class._nnumOfFractionalBeats){
-	std::cout << "Copy constructor called" << std::endl;
-	this->_nfixedPointValue = copy_class.getRawBits();
+Fixed::Fixed(const int& int_fixedPointValue) : _nNumOfBits(8) {
+	std::cout << "Int constructor called" << std::endl;
+	this->_nfixedPointValue = int_fixedPointValue * 256;
+}
+
+Fixed::Fixed(const float& fValue) : _nNumOfBits(8) {
+	std::cout << "Float constructor called" << std::endl;
+	this->_nfixedPointValue = (int)roundf(fValue * (float)(1 << _nNumOfBits));
 }
 
 Fixed& Fixed::operator=(Fixed const & obj_to_assign) {
 	std::cout << "Assignation operator called" << std::endl;
-	this->_nfixedPointValue = obj_to_assign.getRawBits();
+	if (&obj_to_assign != this)
+		this->_nfixedPointValue = obj_to_assign._nfixedPointValue;
 	return *this;
+}
+
+int Fixed::toInt() const {
+	return (int)(_nfixedPointValue / (1 << _nNumOfBits));
+}
+
+float Fixed::toFloat() const {
+	return ((float)(_nfixedPointValue) / (float)(1 << _nNumOfBits));
 }
 
 int Fixed::getRawBits() const{
@@ -30,6 +49,11 @@ int Fixed::getRawBits() const{
 	return _nfixedPointValue;
 }
 
-void Fixed::setRawBits(const int raw) {
-	_nfixedPointValue = raw;
+void Fixed::setRawBits(int nRaw) {
+	_nfixedPointValue = nRaw * (1 << _nNumOfBits);
+}
+
+std::ostream& operator<<(std::ostream& o, const Fixed &obj) {
+	o << obj.toFloat();
+	return o;
 }

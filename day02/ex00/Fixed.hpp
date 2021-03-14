@@ -25,5 +25,4 @@ private:
 
 };
 
-
 #endif //_FIXED_H

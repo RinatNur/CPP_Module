@@ -2,27 +2,29 @@
 // Created by Rinat Nurutdinow on 3/15/21.
 //
 
-#ifndef _SCAVTRAP_H
-#define _SCAVTRAP_H
+#ifndef _CLAPTRAP_H
+#define _CLAPTRAP_H
 
-#include <string>
 #include <iostream>
+#include <string>
 
-class ScavTrap {
+class ClapTrap {
 public:
-	ScavTrap();
-	ScavTrap(const std::string& name);
-	ScavTrap(const ScavTrap& copy_obj);
-	~ScavTrap();
 
-	int 			getHitPoints();
-	ScavTrap& 		operator=(ScavTrap const& obj_to_assign);
+	ClapTrap();
+	ClapTrap(const std::string& name);
+	ClapTrap(const ClapTrap& copy_obj);
+	~ClapTrap();
+
+	ClapTrap& 		operator=(ClapTrap const& obj_to_assign);
 	void			rangedAttack(std::string const & target);
 	void			meleeAttack(std::string const & target);
 	void			takeDamage(unsigned int amount);
 	void 			beRepaired(unsigned int amount);
-	void 			challengeNewcomer();
-private:
+	int 			getHitPoints();
+	int 			getEnergyPoints();
+
+protected:
 
 	std::string		_szName;
 	int 			_nHitPoints;
@@ -37,4 +39,4 @@ private:
 };
 
 
-#endif //_SCAVTRAP_H
+#endif //_CLAPTRAP_H

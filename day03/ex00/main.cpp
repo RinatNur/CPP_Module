@@ -8,6 +8,8 @@ int main()
 {
 	FragTrap	fragTrap("Ninja");
 
+	srand(time(NULL));
+
 	fragTrap.rangedAttack("Goblin");
 
 	fragTrap.meleeAttack("Vampir");
@@ -32,8 +34,8 @@ int main()
 	fragTrap.vaulthunter_dot_exe("Goro");
 	std::cout << "Energy Points after attack = " << fragTrap.getEnergyPoints() << "\n\n";
 	//second vaulthunter attack
-//	std::cout << "\nEnergy Points before attack = " << fragTrap.getEnergyPoints() << "\n";
-//	fragTrap.vaulthunter_dot_exe("Goro");
-//	std::cout << "Energy Points after attack = " << fragTrap.getEnergyPoints() << "\n\n";
+	std::cout << "\nEnergy Points before attack = " << fragTrap.getEnergyPoints() << "\n";
+	fragTrap.vaulthunter_dot_exe("Goro");
+	std::cout << "Energy Points after attack = " << fragTrap.getEnergyPoints() << "\n\n";
 	return 0;
 }

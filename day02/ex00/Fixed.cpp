@@ -34,6 +34,3 @@ void Fixed::setRawBits(const int raw) {
 	_nfixedPointValue = raw;
 }
 
-Fixed::Fixed(const int fixedPointV) {
-
-}

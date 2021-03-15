@@ -5,7 +5,7 @@
 #include "FragTrap.hpp"
 
 FragTrap::FragTrap() {
-	std::cout << "*****Default constructor called*****" << std::endl;
+	std::cout << "****Default Frag constructor called*" << std::endl;
 	this->_nHitPoints = 100;
 	this->_nMaxHitPoints = 100;
 	this->_nEnergyPoints = 100;
@@ -18,7 +18,7 @@ FragTrap::FragTrap() {
 }
 
 FragTrap::FragTrap(const std::string& szName) {
-	std::cout << "*****Constructor called*************" << std::endl;
+	std::cout << "*****Frag constructor called********" << std::endl;
 	std::cout << "I'm " << szName << "! Ready to kill." << std::endl;
 	this->_nHitPoints = 100;
 	this->_nMaxHitPoints = 100;
@@ -33,12 +33,12 @@ FragTrap::FragTrap(const std::string& szName) {
 }
 
 FragTrap::FragTrap(const FragTrap& copy_obj) {
-	std::cout << "*****Copy constructor called*****" << std::endl;
+	std::cout << "*****Frag copy constructor called***" << std::endl;
 	operator=(copy_obj);
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "*****Destructor called**************" << std::endl;
+	std::cout << "*****Frag destructor called*********" << std::endl;
 	std::cout << "I see lightning in my chest, so I'm dying..." << std::endl;
 	std::cout << "Rest in peace " << this->_szName << std::endl;
 	std::cout << "************************************" << std::endl;
@@ -46,7 +46,7 @@ FragTrap::~FragTrap() {
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &obj_to_assign) {
-	std::cout << "*****Assign operator called*********" << std::endl;
+	std::cout << "*****Frag assign operator called****" << std::endl;
 	if (this != &obj_to_assign) {
 		this->_nHitPoints = obj_to_assign._nHitPoints;
 		this->_nMaxHitPoints =  obj_to_assign._nMaxHitPoints;
@@ -135,5 +135,3 @@ int FragTrap::getHitPoints() {
 int FragTrap::getEnergyPoints() {
 	return _nEnergyPoints;
 }
-
-

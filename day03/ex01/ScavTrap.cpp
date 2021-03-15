@@ -5,7 +5,7 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() {
-	std::cout << "*****Default constructor called*****" << std::endl;
+	std::cout << "****Default Scav constructor called*" << std::endl;
 	this->_nHitPoints = 100;
 	this->_nMaxHitPoints = 100;
 	this->_nEnergyPoints = 50;
@@ -18,7 +18,7 @@ ScavTrap::ScavTrap() {
 }
 
 ScavTrap::ScavTrap(const std::string& szName) {
-	std::cout << "*****Constructor called*************" << std::endl;
+	std::cout << "*****Scav constructor called********" << std::endl;
 	std::cout << szName << " born to war!" << std::endl;
 	this->_nHitPoints = 100;
 	this->_nMaxHitPoints = 100;
@@ -33,12 +33,12 @@ ScavTrap::ScavTrap(const std::string& szName) {
 }
 
 ScavTrap::ScavTrap(const ScavTrap& copy_obj) {
-	std::cout << "*****Copy constructor called*****" << std::endl;
+	std::cout << "*****Scav copy constructor called***" << std::endl;
 	operator=(copy_obj);
 }
 
 ScavTrap::~ScavTrap() {
-	std::cout << "*****Destructor called**************" << std::endl;
+	std::cout << "*****Scav destructor called*********" << std::endl;
 	std::cout << "I can see... the code" << std::endl;
 	std::cout << "Rest in peace " << this->_szName << std::endl;
 	std::cout << "************************************" << std::endl;
@@ -46,7 +46,7 @@ ScavTrap::~ScavTrap() {
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &obj_to_assign) {
-	std::cout << "*****Assign operator called*********" << std::endl;
+	std::cout << "*****Scav assign operator called****" << std::endl;
 	if (this != &obj_to_assign) {
 		this->_nHitPoints = obj_to_assign._nHitPoints;
 		this->_nMaxHitPoints =  obj_to_assign._nMaxHitPoints;

@@ -16,7 +16,7 @@ public:
 	ScavTrap(const ScavTrap& copy_obj);
 	~ScavTrap();
 
-	ScavTrap& 		operator=(ScavTrap const& obj_to_assign);
+	ScavTrap&		operator=(ScavTrap const& obj_to_assign);
 	void 			challengeNewcomer();
 };
 

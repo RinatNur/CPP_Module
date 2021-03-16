@@ -17,7 +17,7 @@ public:
 	FragTrap(const FragTrap& copy_obj);
 	~FragTrap();
 
-	FragTrap& 		operator=(FragTrap const& obj_to_assign);
+	FragTrap&		operator=(FragTrap const& obj_to_assign);
 	void			vaulthunter_dot_exe(std::string const & target);
 };
 

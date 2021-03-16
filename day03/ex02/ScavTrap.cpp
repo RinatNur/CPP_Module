@@ -42,7 +42,6 @@ ScavTrap::~ScavTrap() {
 	std::cout << "I can see... the code" << std::endl;
 	std::cout << "Rest in peace " << this->_szName << std::endl;
 	std::cout << "************************************" << std::endl;
-
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &obj_to_assign) {

@@ -121,7 +121,7 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target) {
 		std::cout << "Oooops not enough energy to this attack " << std::endl;
 	else
 	{
-		std::cout << attack[(rand() % 5)] << std::endl;
+		std::cout << attack[(rand() % 5)] << " " << target << " i'm coming" <<std::endl;
 		this->_nEnergyPoints -= 25;
 	}
 	std::cout << "************************************" << std::endl;

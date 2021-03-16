@@ -108,11 +108,10 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	std::cout << "************************************" << std::endl;
 }
 
-int ClapTrap::getHitPoints() {
+int ClapTrap::getHitPoints() const{
 	return _nHitPoints;
 }
 
-int ClapTrap::getEnergyPoints() {
+int ClapTrap::getEnergyPoints() const{
 	return _nEnergyPoints;
 }
-

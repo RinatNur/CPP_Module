@@ -3,8 +3,6 @@
 //
 
 #include "ClapTrap.hpp"
-#include "../ex03/ClapTrap.hpp"
-
 
 ClapTrap::ClapTrap() {
 	std::cout << "****Default Clap constructor called*" << std::endl;
@@ -117,3 +115,8 @@ int ClapTrap::getHitPoints() const{
 int ClapTrap::getEnergyPoints() const{
 	return _nEnergyPoints;
 }
+
+std::string ClapTrap::getName() const {
+	return this->_szName;
+}
+

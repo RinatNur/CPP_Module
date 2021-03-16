@@ -83,7 +83,7 @@ void FragTrap::meleeAttack(const std::string &target) {
 
 void FragTrap::takeDamage(unsigned int amount) {
 	std::cout << "*****Take Damage called*************" << std::endl;
-	if (amount > this->_nHitPoints)
+	if ((int)amount > this->_nHitPoints)
 		std::cout << "The Hit Point less then damage amount!" << std::endl;
 	else
 	{

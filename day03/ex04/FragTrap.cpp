@@ -4,32 +4,22 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() {
+FragTrap::FragTrap() : ClapTrap() {
 	std::cout << "****Default Frag constructor called*" << std::endl;
 	this->_nHitPoints = 100;
 	this->_nMaxHitPoints = 100;
-	this->_nEnergyPoints = 100;
-	this->_nMaxEnergyPoints = 100;
-	this->_nLevel = 1;
-	this->_szName = "default";
-	this->_nMeleeAttackDamage = 30;
 	this->_nRangedAttackDamage = 20;
 	this->_nArmorDamageReduction = 5;
 }
 
-FragTrap::FragTrap(const std::string& szName) {
+FragTrap::FragTrap(const std::string& szName) : ClapTrap(szName) {
 	std::cout << "*****Frag constructor called********" << std::endl;
 	std::cout << "I'm " << szName << "! Ready to kill." << std::endl;
+	std::cout << "************************************" << std::endl;
 	this->_nHitPoints = 100;
 	this->_nMaxHitPoints = 100;
-	this->_nEnergyPoints = 100;
-	this->_nMaxEnergyPoints = 100;
-	this->_nLevel = 1;
-	this->_szName = szName;
-	this->_nMeleeAttackDamage = 30;
 	this->_nRangedAttackDamage = 20;
 	this->_nArmorDamageReduction = 5;
-	std::cout << "************************************" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& copy_obj) {
@@ -63,51 +53,6 @@ FragTrap &FragTrap::operator=(const FragTrap &obj_to_assign) {
 	return *this;
 }
 
-void FragTrap::rangedAttack(const std::string &target) {
-	std::cout << "*****Ranged Attack called***********" << std::endl;
-	std::cout << "FR4G-TP " << this->_szName << " attacks " << target
-			  << " at range, causing " << this->_nRangedAttackDamage
-			  << " points of damage!" << std::endl;
-	std::cout << "************************************" << std::endl;
-
-}
-
-void FragTrap::meleeAttack(const std::string &target) {
-	std::cout << "*****Melee Attack called************" << std::endl;
-	std::cout << "FR4G-TP " << this->_szName << " attacks " << target
-			  << " at melee, causing " << this->_nMeleeAttackDamage
-			  << " points of damage!" << std::endl;
-	std::cout << "************************************" << std::endl;
-
-}
-
-void FragTrap::takeDamage(unsigned int amount) {
-	std::cout << "*****Take Damage called*************" << std::endl;
-	if ((int)amount > this->_nHitPoints)
-		std::cout << "The Hit Point less then damage amount!" << std::endl;
-	else
-	{
-		std::cout << "I can't feel my fingers! Gah! I don't have any fingers!" << std::endl;
-		this->_nHitPoints -= (int)amount - this->_nArmorDamageReduction;
-		this->_nHitPoints = (this->_nHitPoints < 0) ? 0 : this->_nHitPoints;
-	}
-	std::cout << "************************************" << std::endl;
-
-}
-
-void FragTrap::beRepaired(unsigned int amount) {
-	std::cout << "*****Be Repaired called*************" << std::endl;
-	if (this->_nHitPoints < 100) {
-		std::cout << "Sweet life juice!" << std::endl;
-		this->_nHitPoints += (int)amount;
-		this->_nHitPoints = this->_nHitPoints > this->_nMaxHitPoints
-							? this->_nMaxHitPoints : this->_nHitPoints;
-	}
-	else
-		std::cout << "My hit point is full!" << std::endl;
-	std::cout << "************************************" << std::endl;
-}
-
 void FragTrap::vaulthunter_dot_exe(const std::string &target) {
 	std::cout << "*****Vaulthunter called*************" << std::endl;
 	std::string 	attack[5] = {
@@ -125,13 +70,4 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target) {
 		this->_nEnergyPoints -= 25;
 	}
 	std::cout << "************************************" << std::endl;
-
-}
-
-int FragTrap::getHitPoints() {
-	return _nHitPoints;
-}
-
-int FragTrap::getEnergyPoints() {
-	return _nEnergyPoints;
 }

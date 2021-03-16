@@ -3,8 +3,6 @@
 //
 
 #include "ClapTrap.hpp"
-#include "../ex04/ClapTrap.hpp"
-
 
 ClapTrap::ClapTrap() {
 	std::cout << "****Default Clap constructor called*" << std::endl;
@@ -120,4 +118,15 @@ int ClapTrap::getEnergyPoints() const{
 
 std::string ClapTrap::getName() const {
 	return this->_szName;
+}
+
+void ClapTrap::printAllFields() const{
+	std::cout << "Name                 = " << this->_szName << std::endl;
+	std::cout << "HitPoints            = " << this->_nHitPoints << std::endl;
+	std::cout << "MaxHitPoints         = " << this->_nMaxHitPoints << std::endl;
+	std::cout << "EnergyPoints         = " << this->_nEnergyPoints << std::endl;
+	std::cout << "MaxEnergyPoints      = " << this->_nMaxEnergyPoints << std::endl;
+	std::cout << "MeleeAttackDamage    = " << this->_nMeleeAttackDamage << std::endl;
+	std::cout << "RangedAttackDamage   = " << this->_nRangedAttackDamage << std::endl;
+	std::cout << "ArmorDamageReduction = " << this->_nArmorDamageReduction << std::endl;
 }

@@ -7,7 +7,7 @@
 
 #include "Enemy.hpp"
 
-class SuperMutant : Enemy{
+class SuperMutant : public Enemy{
 public:
 	SuperMutant();
 	SuperMutant(const SuperMutant& copy_obj);

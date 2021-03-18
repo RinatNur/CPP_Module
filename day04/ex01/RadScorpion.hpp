@@ -7,7 +7,7 @@
 
 #include "Enemy.hpp"
 
-class RadScorpion : Enemy{
+class RadScorpion : public Enemy{
 public:
 	RadScorpion();
 	RadScorpion(const RadScorpion& copy_obj);

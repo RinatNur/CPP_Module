@@ -31,11 +31,10 @@ std::string Enemy::getType() const {
 }
 
 int Enemy::getHP() const {
-	return this->getHP();
+	return this->nHp_;
 }
 
 void Enemy::takeDamage(int value) {
 	if (value >= 0)
 		this->nHp_ -= value;
-	this->nHp_ = this->nHp_ < 0 ? 0 : this->nHp_;
 }

@@ -25,4 +25,6 @@ RadScorpion::~RadScorpion() {
 
 void RadScorpion::takeDamage(int value) {
 	Enemy::takeDamage(value);
+//	if(this->getHP() <= 0)
+//		this->~RadScorpion();
 }

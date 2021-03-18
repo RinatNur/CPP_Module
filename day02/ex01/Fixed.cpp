@@ -54,6 +54,6 @@ void Fixed::setRawBits(int nRaw) {
 }
 
 std::ostream& operator<<(std::ostream& o, const Fixed &obj) {
-	o << obj.;
+	o << obj.toFloat();
 	return o;
 }

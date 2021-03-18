@@ -6,6 +6,8 @@
 #include "Peon.hpp"
 #include "Sorcerer.hpp"
 
+//TODO Add some tests and derived classes
+
 int 	main()
 {
 	//tests from subject

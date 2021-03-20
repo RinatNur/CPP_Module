@@ -35,6 +35,9 @@ int Enemy::getHP() const {
 }
 
 void Enemy::takeDamage(int value) {
-	if (value >= 0)
+	if (value >= 0) {
 		this->nHp_ -= value;
+		this->nHp_ = this->nHp_ < 0 ? 0 : this->nHp_;
+//		std::cout << "Enemy's HP = " << this->nHp_ << std::endl;
+	}
 }

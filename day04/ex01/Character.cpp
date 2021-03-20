@@ -21,7 +21,6 @@ Character &Character::operator=(const Character &objToAssign) {
 }
 
 Character::~Character() {
-
 }
 
 void Character::recoverAP() {

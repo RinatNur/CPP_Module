@@ -8,11 +8,11 @@
 #include "PowerFist.hpp"
 #include "RadScorpion.hpp"
 #include "Character.hpp"
-
-//TODO add something else in main
+#include "SuperMutant.hpp"
 
 int 	main()
 {
+	// example in subject
 	Character* me = new Character("me");
 	std::cout << *me;
 	Enemy* b = new RadScorpion();
@@ -29,5 +29,31 @@ int 	main()
 	std::cout << *me;
 	me->attack(b);
 	std::cout << *me;
+
+	//some more tests
+	Enemy*	terminator = new SuperMutant();
+	me->attack(terminator);
+	std::cout << "Enemy's HP = " << terminator->getHP() << std::endl;
+
+	me->attack(terminator);
+	std::cout << *me;
+	std::cout << "Enemy's HP = " << terminator->getHP() << std::endl;
+
+	me->attack(terminator);
+	std::cout << *me;
+	std::cout << "Enemy's HP = " << terminator->getHP() << std::endl;
+
+	me->attack(terminator);
+	std::cout << "Enemy's HP = " << terminator->getHP() << std::endl;
+	std::cout << *me;
+	me->recoverAP();
+	std::cout << *me;
+
+	delete me;
+	delete pr;
+	delete pf;
+	delete terminator;
+//	Enemy b is not dead, it must be deleted by line under
+//	delete b;
 	return 0;
 }

@@ -2,7 +2,6 @@
 // Created by Rinat Nurutdinow on 3/18/21.
 //
 
-#include <unistd.h>
 #include "AWeapon.hpp"
 #include "PlasmaRifle.hpp"
 #include "PowerFist.hpp"

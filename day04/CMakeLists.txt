@@ -11,12 +11,18 @@ add_executable(day03
 #        ex00/Sorcerer.cpp
 #        ex00/Victim.cpp
 #        ex00/main.cpp
-        ex01/AWeapon.cpp
-        ex01/Character.cpp
-        ex01/Enemy.cpp
-        ex01/SuperMutant.cpp
-        ex01/RadScorpion.cpp
-        ex01/PowerFist.cpp
-        ex01/PlasmaRifle.cpp
-        ex01/main.cpp
+#        ex01/AWeapon.cpp
+#        ex01/Character.cpp
+#        ex01/Enemy.cpp
+#        ex01/SuperMutant.cpp
+#        ex01/RadScorpion.cpp
+#        ex01/PowerFist.cpp
+#        ex01/PlasmaRifle.cpp
+#        ex01/main.cpp
+        ex02/AssaultTerminator.cpp
+        ex02/Squad.cpp
+        ex02/TacticalMarine.cpp
+        ex02/ISquad.hpp
+        ex02/ISpaceMarine.hpp
+        ex02/main.cpp
         )

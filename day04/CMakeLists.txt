@@ -19,10 +19,18 @@ add_executable(day03
 #        ex01/PowerFist.cpp
 #        ex01/PlasmaRifle.cpp
 #        ex01/main.cpp
-        ex02/AssaultTerminator.cpp
-        ex02/Squad.cpp
-        ex02/TacticalMarine.cpp
-        ex02/ISquad.hpp
-        ex02/ISpaceMarine.hpp
-        ex02/main.cpp
+#        ex02/AssaultTerminator.cpp
+#        ex02/Squad.cpp
+#        ex02/TacticalMarine.cpp
+#        ex02/ISquad.hpp
+#        ex02/ISpaceMarine.hpp
+#        ex02/main.cpp
+        ex03/AMateria.cpp
+        ex03/Character.cpp
+        ex03/Cure.cpp
+        ex03/Ice.cpp
+        ex03/MateriaSource.cpp
+        ex03/ICharacter.hpp
+        ex03/IMateriaSource.hpp
+        ex03/main.cpp
         )

@@ -26,6 +26,7 @@ add_executable(day03
 #        ex02/ISpaceMarine.hpp
 #        ex02/main.cpp
         ex03/AMateria.cpp
+        ex03/Fire.cpp
         ex03/AMateria.hpp
         ex03/Character.cpp
         ex03/Cure.cpp

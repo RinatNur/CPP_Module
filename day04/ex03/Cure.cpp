@@ -17,15 +17,13 @@ Cure &Cure::operator=(const Cure &obj_to_assign) {
 	return *this;
 }
 
-Cure::~Cure() {
-
-}
+Cure::~Cure() {}
 
 AMateria *Cure::clone() const {
 	return (new Cure);
 }
 
 void Cure::use(ICharacter &target) {
-	std::cout << "* heals " << this->szName_ << "'s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 	AMateria::use(target);
 }

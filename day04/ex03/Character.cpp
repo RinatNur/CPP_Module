@@ -16,12 +16,13 @@ Character::Character(const Character &copy_obj){
 Character &Character::operator=(const Character &objToAssign) {
 	if (this != &objToAssign && objToAssign.nAmmountMateria_)
 	{
-		for (int i = 0; i < this->nAmmountMateria_; ++i)
+		for (int i = 0; i < this->nAmmountMateria_; ++i) {
 			delete this->MateriaArr_[i];
-//		delete *this->MateriaArr_;
+			this->MateriaArr_[i] = nullptr;
+		}
 
 		for(int i = 0; i < objToAssign.nAmmountMateria_; ++i)
-			this->MateriaArr_[i] = objToAssign.MateriaArr_[i];
+			this->MateriaArr_[i] = objToAssign.MateriaArr_[i]->clone();
 		this->nAmmountMateria_ = objToAssign.nAmmountMateria_;
 	}
 	this->szName_ = objToAssign.szName_;
@@ -33,7 +34,6 @@ Character::~Character() {
 	{
 		for(int i = 0; i < nAmmountMateria_; ++i)
 			delete this->MateriaArr_[i];
-//		delete  *this->MateriaArr_;
 	}
 }
 
@@ -45,24 +45,24 @@ void Character::equip(AMateria * m) {
 }
 
 void Character::unequip(int idx) {
+	if (idx >= 0 && idx < this->nAmmountMateria_)
+	{
+		this->MateriaArr_[idx] = nullptr;
+		for (int i = idx; i < this->nAmmountMateria_ - 1; ++i)
+		{
+			this->MateriaArr_[i] = this->MateriaArr_[i + 1];
+			this->MateriaArr_[i + 1] = nullptr;
+		}
+		this->nAmmountMateria_--;
+	}
 
 }
 
 void Character::use(int idx, ICharacter &target) {
-	this->MateriaArr_[idx - 1]->use(target);
+	if (idx >= 0 && idx < this->nAmmountMateria_ && this->MateriaArr_[idx])
+		this->MateriaArr_[idx]->use(target);
 }
 
 std::string const & Character::getName() const {
 	return this->szName_;
 }
-
-
-
-//std::ostream& operator<<(std::ostream& o, const Character &obj)
-//{
-//	if (obj.getWeapon())
-//		o << obj.getName() << " has " << obj.getAp() << " AP and wields a " << obj.getWeaponName() << "\n";
-//	else
-//		o << obj.getName() << " has " << obj.getAp() << " AP and is unarmed\n";
-//	return o;
-//}

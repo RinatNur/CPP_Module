@@ -7,23 +7,24 @@
 
 #include <iostream>
 #include <string>
-//#include "AMateria.hpp"
 #include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource{
 private:
 
-	AMateria*	MateriaSource_[4];
-	int 		nAmountMatSource_;
+	AMateria*		MateriaSource_[4];
+	int				nAmountMatSource_;
 
 public:
+
 	MateriaSource();
 	MateriaSource(const MateriaSource& copy_obj);
 	MateriaSource& operator=(const MateriaSource& obj_to_assign);
 	virtual ~MateriaSource();
 
-	void learnMateria(AMateria*);
-	AMateria* createMateria(std::string const & type);
+	void			learnMateria(AMateria*);
+	AMateria*		createMateria(std::string const & type);
+
 };
 
 

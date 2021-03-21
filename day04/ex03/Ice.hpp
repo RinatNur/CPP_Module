@@ -15,14 +15,15 @@ private:
 	std::string 	szName_;
 
 public:
+
 	Ice();
 	Ice(const Ice& copy_obj);
 	Ice& operator=(const Ice& obj_to_assign);
 	virtual ~Ice();
-	AMateria* clone() const;
-	void use(ICharacter& target);
+
+	AMateria*		clone() const;
+	void			use(ICharacter& target);
 
 };
-
 
 #endif //ICE_HPP

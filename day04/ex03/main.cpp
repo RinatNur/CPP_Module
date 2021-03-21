@@ -6,82 +6,15 @@
 #include "Character.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
+#include "Fire.hpp"
 #include "ICharacter.hpp"
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 
 int main()
 {
-	std::cout << "hello day 04 ex 03" << std::endl;
-	Character character("hello");
-	AMateria *aMateria = new Ice;
-	AMateria *aMateria1 = new Ice;
-	AMateria *aMateria2 = new Cure;
-	AMateria *aMateria3 = new Ice;
-	character.equip(aMateria);
-	character.equip(aMateria1);
-	character.equip(aMateria2);
-	character.equip(aMateria3);
-	character.equip(aMateria);
-	character.use(1, character);
-	character.use(2, character);
-	character.use(3, character);
-	character.use(4, character);
-/*	character.unequip(0);
-	character.unequip(1);
-	character.unequip(1);
-	character.unequip(1);
-	character.unequip(1);*/
-//	character.unequip(0);
-
-	Character character1("world");
-	AMateria *aMateria4 = new Cure;
-	character1.equip(aMateria4);
-	std::cout << "TEST CPY CONSTR ANS OPER ASSIG" << std::endl;
-	character1 = character;
-	Character character2(character1);
-	std::cout << character.getName() << std::endl;
-	std::cout << character1.getName() << std::endl;
-	std::cout << character2.getName() << std::endl;
-	character.use(0, character);
-	character1.use(0, character);
-	character2.use(0, character);
-	character.use(1, character);
-	character1.use(1, character);
-	character2.use(1, character);
-	character.use(2, character);
-	character1.use(2, character);
-	character2.use(2, character);
-
-//	delete aMateria;
-/*	delete aMateria1;
-	delete aMateria2;
-	delete aMateria3;*/
-	std::cout << std::endl << std::endl;
-
-	AMateria *aMateria5 = new Ice;
-	AMateria *aMateria6 = new Cure;
-	AMateria *aMateria7 = new Cure;
-	AMateria *aMateria8 = new Ice;
-	AMateria *aMateria9 = new Ice;
-
-	MateriaSource materiaSource;
-	materiaSource.learnMateria(aMateria5);
-	materiaSource.learnMateria(aMateria6);
-	materiaSource.learnMateria(aMateria7);
-	materiaSource.learnMateria(aMateria8);
-	materiaSource.learnMateria(aMateria9);
-
-	AMateria *aMateria10 = materiaSource.createMateria("ice");
-	std::cout << aMateria10->getType() << std::endl;
-
-	MateriaSource materiaSource1(materiaSource);
-	MateriaSource materiaSource2;
-	materiaSource2 = materiaSource1;
-	delete aMateria9;
-	delete aMateria10;
-	std::cout << std::endl << std::endl;
-
+	//tests from subject
+	std::cout << "tests from subject\n";
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -97,4 +30,66 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+
+	//check equip and unequip in ICharacter
+	std::cout << "\n\ncheck equip and unequip in ICharacter\n";
+	ICharacter* he = new Character("he");
+	AMateria*	materia1 = new Ice();
+	AMateria*	materia2 = new Cure();
+	AMateria*	materia3 = new Cure();
+	AMateria*	materia4 = new Ice();
+	he->equip(materia1);
+	he->equip(materia2);
+	he->equip(materia3);
+	he->equip(materia4);
+	he->use(0, *he);
+	he->use(1, *he);
+	he->use(2, *he);
+	he->use(3, *he);
+	std::cout << "\nUnequip material under index 1\n";
+	he->unequip(1);
+	he->use(0, *he);
+	he->use(1, *he);
+	he->use(2, *he);
+	std::cout << "\nUnequip material under index 0, 2\n";
+	he->unequip(0);
+	he->unequip(1);
+	he->use(0, *he);
+	he->unequip(0);
+	he->use(0, *he);
+	delete he;
+	delete materia1;
+	delete materia2;
+	delete materia3;
+	delete materia4;
+
+	//check IMaterialSource
+	std::cout << "\n\ncheck IMaterialSource\n";
+	IMateriaSource*		MS = new MateriaSource();
+	AMateria*	materia5 = new Ice();
+	AMateria*	materia6 = new Cure();
+	AMateria*	materia7 = new Cure();
+	AMateria*	materia8 = new Cure();
+	AMateria*	materia9 = new Fire();
+	MS->learnMateria(materia5);
+	MS->learnMateria(materia6);
+	MS->learnMateria(materia7);
+	MS->learnMateria(materia8);
+	MS->learnMateria(materia9);
+	AMateria*	tmp1;
+	std::string type = "ice";
+	tmp1 = MS->createMateria(type);
+	if (tmp1)
+		std:: cout << "Type \"" << tmp1->getType() << "\" is in Source.\n";
+	else
+		std:: cout << "Type \"" << type << "\" is not founded.\n";
+	delete MS;
+	delete tmp1;
+//	delete materia5;
+	delete materia6;
+//	delete materia7;
+//	delete materia8;
+//	delete materia9;
+
+	return 0;
 }

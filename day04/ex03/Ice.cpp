@@ -12,20 +12,17 @@ Ice::Ice(const Ice &copy_obj) : AMateria("ice"), szName_(copy_obj.szName_){
 }
 
 Ice &Ice::operator=(const Ice &obj_to_assign) {
-	if (this != &obj_to_assign)
-		this->szName_ = obj_to_assign.szName_;
+	AMateria::operator=(obj_to_assign);
 	return *this;
 }
 
-Ice::~Ice() {
-
-}
+Ice::~Ice() {}
 
 AMateria *Ice::clone() const {
 	return (new Ice);
 }
 
 void Ice::use(ICharacter &target) {
-	std::cout << "* shoots an ice bolt at " << this->szName_ << " *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 	AMateria::use(target);
 }

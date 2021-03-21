@@ -2,8 +2,8 @@
 // Created by Rinat Nurutdinow on 3/20/21.
 //
 
-#ifndef DAY04_SQUAD_H
-#define DAY04_SQUAD_H
+#ifndef SQUAD_H
+#define SQUAD_H
 
 #include <iostream>
 #include <string>
@@ -28,4 +28,4 @@ public:
 };
 
 
-#endif //DAY04_SQUAD_H
+#endif //SQUAD_H

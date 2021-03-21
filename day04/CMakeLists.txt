@@ -2,15 +2,15 @@ cmake_minimum_required(VERSION 3.17)
 project(day04)
 
 set(CMAKE_CXX_STANDARD 98)
-#set(CMAKE_CXX_FLAGS "-Wall -Werror -Wextra")
+set(CMAKE_CXX_FLAGS "-Wall -Werror -Wextra")
 
 include_directories(ex00, ex01)
 
 add_executable(day03
-#        ex00/Peon.cpp
-#        ex00/Sorcerer.cpp
-#        ex00/Victim.cpp
-#        ex00/main.cpp
+        ex00/Peon.cpp
+        ex00/Sorcerer.cpp
+        ex00/Victim.cpp
+        ex00/main.cpp
 #        ex01/AWeapon.cpp
 #        ex01/Character.cpp
 #        ex01/Enemy.cpp
@@ -25,15 +25,15 @@ add_executable(day03
 #        ex02/ISquad.hpp
 #        ex02/ISpaceMarine.hpp
 #        ex02/main.cpp
-        ex03/AMateria.cpp
-        ex03/Fire.cpp
-        ex03/AMateria.hpp
-        ex03/Character.cpp
-        ex03/Cure.cpp
-        ex03/Ice.cpp
-        ex03/MateriaSource.cpp
-        ex03/MateriaSource.hpp
-        ex03/ICharacter.hpp
-        ex03/IMateriaSource.hpp
-        ex03/main.cpp
+#        ex03/AMateria.cpp
+#        ex03/Fire.cpp
+#        ex03/AMateria.hpp
+#        ex03/Character.cpp
+#        ex03/Cure.cpp
+#        ex03/Ice.cpp
+#        ex03/MateriaSource.cpp
+#        ex03/MateriaSource.hpp
+#        ex03/ICharacter.hpp
+#        ex03/IMateriaSource.hpp
+#        ex03/main.cpp
         )

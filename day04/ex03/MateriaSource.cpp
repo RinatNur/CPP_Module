@@ -28,7 +28,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &obj_to_assign) {
 }
 
 MateriaSource::~MateriaSource() {
-	if (this && this->nAmountMatSource_)
+	if (this->nAmountMatSource_)
 	{
 		for(int i = 0; i < nAmountMatSource_; ++i)
 			if (this->MateriaSource_[i] != nullptr)

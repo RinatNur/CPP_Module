@@ -11,6 +11,7 @@
 
 class TacticalMarine : public ISpaceMarine {
 public:
+
 	TacticalMarine();
 	TacticalMarine(const TacticalMarine& copy_obj);
 	TacticalMarine& operator=(const TacticalMarine& obj_to_assign);
@@ -22,6 +23,5 @@ public:
 	virtual void meleeAttack() const;
 
 };
-
 
 #endif //TACTICALMARINE_H

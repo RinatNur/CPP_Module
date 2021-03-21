@@ -16,6 +16,7 @@ private:
 	unsigned int _xp;
 public:
 	AMateria(std::string const & type);
+
 	AMateria(const AMateria& copy_obj);
 	AMateria& operator=(const AMateria& obj_to_assign);
 //	[...]

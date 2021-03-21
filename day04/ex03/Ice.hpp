@@ -2,8 +2,8 @@
 // Created by Rinat Nurutdinow on 3/20/21.
 //
 
-#ifndef DAY04_ICE_HPP
-#define DAY04_ICE_HPP
+#ifndef ICE_HPP
+#define ICE_HPP
 
 #include <iostream>
 #include <string>
@@ -12,16 +12,17 @@
 class Ice : public AMateria{
 private:
 
+	std::string 	szName_;
 
 public:
 	Ice();
 	Ice(const Ice& copy_obj);
 	Ice& operator=(const Ice& obj_to_assign);
 	virtual ~Ice();
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter& target);
+	AMateria* clone() const;
+	void use(ICharacter& target);
 
 };
 
 
-#endif //DAY04_ICE_HPP
+#endif //ICE_HPP

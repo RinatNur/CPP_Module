@@ -13,14 +13,26 @@ private:
 
 	const std::string 	szName_;
 	int 				nGrade_;
-	const int 			nLowestGrade_;
-	const int 			nHighestGrade_;
 
 public:
 
 	Bureaucrat(const std::string& szName, int nGrade);
-	virtual ~Bureaucrat();
+	~Bureaucrat();
+
+	class GradeTooHighException : public std::exception{
+	public:
+		virtual const char* what() const throw();
+	};
+	class GradeTooLowException : public std::exception{
+	public:
+		virtual const char* what() const throw();
+	};
+	std::string 		getName() const;
+	int					getGrade() const;
+	void 				incrementGrade();
+	void 				decrementGrade();
 };
 
+std::ostream& operator<<(std::ostream& o, const Bureaucrat& obj);
 
 #endif //DAY05_BUREAUCRAT_HPP

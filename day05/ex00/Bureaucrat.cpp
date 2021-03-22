@@ -6,10 +6,10 @@
 
 Bureaucrat::Bureaucrat(const std::string &szName, int nGrade)
 		: szName_(szName){
-	 if (nGrade > 150)
+	if (nGrade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	 else if (nGrade < 1)
-		 throw Bureaucrat::GradeTooHighException();
+	else if (nGrade < 1)
+		throw Bureaucrat::GradeTooHighException();
 	this->nGrade_ = nGrade;
 }
 

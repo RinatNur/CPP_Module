@@ -16,7 +16,7 @@ void printHeader(std::string header)
 
 int 	main()
 {
-	printHeader("DAY 05, EX 01");
+	printHeader("DAY 05, EX 00");
 	std::cout << std::endl;
 
 	printHeader("Trying to add grade 0");

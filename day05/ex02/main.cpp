@@ -5,8 +5,6 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-//TODO add some tests and check all program
-
 void printHeader(std::string header)
 {
 	std::cout	<< "\033[1;35m"

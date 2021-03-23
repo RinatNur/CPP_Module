@@ -13,7 +13,17 @@ Bureaucrat::Bureaucrat(const std::string &szName, int nGrade)
 	this->nGrade_ = nGrade;
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat &copy_obj) {
+	operator=(copy_obj);
+}
 
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj_to_assign) {
+	if (this == &obj_to_assign)
+		return *this;
+	*(const_cast<std::string*>(&szName_)) = obj_to_assign.szName_;;
+	this->nGrade_ = obj_to_assign.getGrade();
+	return *this;
+}
 
 Bureaucrat::~Bureaucrat() {}
 

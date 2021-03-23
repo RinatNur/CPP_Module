@@ -17,7 +17,9 @@ private:
 public:
 
 	Bureaucrat(const std::string& szName, int nGrade);
-	~Bureaucrat();
+	Bureaucrat(const Bureaucrat&);
+	Bureaucrat& operator=(const Bureaucrat&);
+	virtual ~Bureaucrat();
 
 	class GradeTooHighException : public std::exception{
 	public:

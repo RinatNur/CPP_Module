@@ -21,7 +21,7 @@ Form::Form(std::string szName, int nGradeToSign, int nGradeToExecute)
 }
 
 Form::Form(const Form &copy_obj)
-	: nGradeToSign_(copy_obj.nGradeToSign_), nGradeToExecute_(copy_obj.nGradeToExecute_){
+		: nGradeToSign_(copy_obj.nGradeToSign_), nGradeToExecute_(copy_obj.nGradeToExecute_){
 	operator=(copy_obj);
 }
 

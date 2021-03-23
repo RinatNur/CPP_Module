@@ -4,7 +4,7 @@
 
 #include "Form.hpp"
 
-Form::Form(std::string szName, int nGradeToSign, int nGradeToExecute)
+Form::Form(const std::string& szName, int nGradeToSign, int nGradeToExecute)
 	: szName_(szName), nGradeToSign_(nGradeToSign), nGradeToExecute_(nGradeToExecute){
 
 	if (nGradeToSign > 150)
@@ -45,6 +45,10 @@ const char *Form::GradeTooHighException::what() const throw() {
 	return "Grade is too high.";
 }
 
+const char *Form::FormUnsignedException::what() const throw() {
+	return "Form is not signed";
+}
+
 std::string Form::getName() const {
 	return this->szName_;
 }
@@ -65,6 +69,13 @@ void Form::beSigned(const Bureaucrat& bureaucrat) {
 	if (bureaucrat.getGrade() > this->nGradeToSign_)
 		throw Form::GradeTooLowException();
 	isSigned_ = true;
+}
+
+void Form::execute(const Bureaucrat &executor) const {
+	if (!this->isSigned_)
+		throw FormUnsignedException();
+	if (executor.getGrade() > nGradeToExecute_)
+		throw GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& o, const Form& obj)

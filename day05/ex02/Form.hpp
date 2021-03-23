@@ -21,7 +21,7 @@ private:
 
 public:
 
-	Form(std::string szName, int, int);
+	Form(const std::string& szName, int, int);
 	Form(const Form&);
 	Form& operator=(const Form&);
 	virtual ~Form();
@@ -30,9 +30,16 @@ public:
 	public:
 		virtual const char* what() const throw();
 	};
+
 	class GradeTooLowException : public std::exception{
 	public:
 		virtual const char* what() const throw();
+	};
+
+	class FormUnsignedException : public std::exception
+	{
+	public:
+		virtual const char *what() const throw();
 	};
 
 	std::string 		getName() const;
@@ -40,6 +47,7 @@ public:
 	int					getGradeToExecute() const;
 	bool 				getIsSigned() const;
 	void 				beSigned(const Bureaucrat& bureaucrat);
+	virtual void		execute(Bureaucrat const & executor) const;
 
 };
 

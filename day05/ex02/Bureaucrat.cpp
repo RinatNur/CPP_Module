@@ -52,8 +52,17 @@ void Bureaucrat::signForm(Form &form) {
 		form.beSigned(*this);
 		std::cout << this->getName() << " signs " << form.getName() << ".\n";
 	}
-	std::cout << this->getName() << " cannot sign " << form.getName()
+	else
+		std::cout << this->getName() << " cannot sign " << form.getName()
 			  << " because he is too young.\n";
+}
+
+void Bureaucrat::executeForm(const Form &form) {
+//	if (this->nGrade_ > form.getGradeToExecute())
+//		throw GradeTooLowException();
+
+	form.execute(*this);
+	std::cout << this->getName() << " executes " << form.getName() << ".\n";
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {

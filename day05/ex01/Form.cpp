@@ -3,8 +3,10 @@
 //
 
 #include "Form.hpp"
+#include "../ex02/Form.hpp"
 
-Form::Form(std::string szName, int nGradeToSign, int nGradeToExecute)
+
+Form::Form(const std::string& szName, int nGradeToSign, int nGradeToExecute)
 	: szName_(szName), nGradeToSign_(nGradeToSign), nGradeToExecute_(nGradeToExecute){
 
 	if (nGradeToSign > 150)

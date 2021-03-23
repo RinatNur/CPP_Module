@@ -3,6 +3,8 @@
 //
 
 #include "Bureaucrat.hpp"
+#include "../ex02/Bureaucrat.hpp"
+
 
 Bureaucrat::Bureaucrat(const std::string &szName, int nGrade)
 		: szName_(szName){
@@ -42,7 +44,8 @@ void Bureaucrat::signForm(Form &form) {
 		form.beSigned(*this);
 		std::cout << this->getName() << " signs " << form.getName() << ".\n";
 	}
-	std::cout << this->getName() << " cannot sign " << form.getName()
+	else
+		std::cout << this->getName() << " cannot sign " << form.getName()
 			  << " because he is too young.\n";
 }
 

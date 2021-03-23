@@ -5,8 +5,21 @@
 #ifndef DAY05_ROBOTOMYREQUESTFORM_HPP
 #define DAY05_ROBOTOMYREQUESTFORM_HPP
 
+#include <iostream>
+#include <string>
+#include "Form.hpp"
 
-class RobotomyRequestForm {
+class RobotomyRequestForm : public Form {
+private:
+	std::string 	szTarget_;
+public:
+
+	RobotomyRequestForm(const std::string& szTarget);
+	RobotomyRequestForm(const RobotomyRequestForm&);
+	RobotomyRequestForm& operator=(const RobotomyRequestForm&);
+	virtual ~RobotomyRequestForm();
+
+	void		execute(Bureaucrat const & executor) const;
 
 };
 

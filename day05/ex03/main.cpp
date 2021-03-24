@@ -16,7 +16,7 @@ int 	main()
 	Form* rrf;
 	try {
 		Bureaucrat	deputat("Ostap", 1);
-		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 		deputat.signForm(*rrf);
 		deputat.executeForm(*rrf);
 	}

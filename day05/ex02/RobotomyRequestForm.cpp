@@ -21,7 +21,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
-	Form::execute(executor);
+void RobotomyRequestForm::executeAction(const Bureaucrat& bureaucrat) const {
+	bureaucrat.getName();
 	std::cout << this->szTarget_ << " has been robotomized successfully 50% of the time.\n";
 }

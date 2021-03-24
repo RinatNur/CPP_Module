@@ -31,8 +31,8 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
-	Form::execute(executor);
+void ShrubberyCreationForm::executeAction(const Bureaucrat& bureaucrat) const {
+	bureaucrat.getName();
 	std::ofstream 	ofs;
 	std::string		szFileName = this->szTarget_ + "_shrubbery";
 	ofs.open(szFileName);

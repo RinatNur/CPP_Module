@@ -57,10 +57,7 @@ void Bureaucrat::signForm(Form &form) {
 			  << " because he is too young.\n";
 }
 
-void Bureaucrat::executeForm(const Form &form) {
-//	if (this->nGrade_ > form.getGradeToExecute())
-//		throw GradeTooLowException();
-
+void Bureaucrat::executeForm(const Form &form) const{
 	form.execute(*this);
 	std::cout << this->getName() << " executes " << form.getName() << ".\n";
 }

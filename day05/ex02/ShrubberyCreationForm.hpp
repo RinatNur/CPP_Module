@@ -21,8 +21,7 @@ public:
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm&);
 	virtual ~ShrubberyCreationForm();
 
-	void 			printTreeInFile(const std::string&);
-	void		execute(Bureaucrat const & executor) const;
+	void		executeAction(const Bureaucrat& bureaucrat) const;
 
 };
 

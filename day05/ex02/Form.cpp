@@ -76,6 +76,11 @@ void Form::execute(const Bureaucrat &executor) const {
 		throw FormUnsignedException();
 	if (executor.getGrade() > nGradeToExecute_)
 		throw GradeTooLowException();
+	this->executeAction(executor);
+}
+
+void Form::executeAction(const Bureaucrat &bureaucrat) const {
+	std::cout << this->szName_ << " executed by " << bureaucrat.getName() << ".\n";
 }
 
 std::ostream& operator<<(std::ostream& o, const Form& obj)

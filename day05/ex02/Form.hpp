@@ -48,6 +48,7 @@ public:
 	bool 				getIsSigned() const;
 	void 				beSigned(const Bureaucrat& bureaucrat);
 	virtual void		execute(Bureaucrat const & executor) const;
+	virtual void		executeAction(const Bureaucrat& bureaucrat) const;
 
 };
 

@@ -11,15 +11,14 @@
 
 int 	main()
 {
+	printHeader("DAY 05, EX 03");
 	Intern someRandomIntern;
 	Form* rrf;
 	try {
 		Bureaucrat	deputat("Ostap", 1);
 		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-//		rrf->beSigned(deputat);
 		deputat.signForm(*rrf);
 		deputat.executeForm(*rrf);
-//		rrf.t
 	}
 	catch (std::exception& e) {
 		std::cout << e.what() << std::endl;

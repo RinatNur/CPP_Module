@@ -28,16 +28,19 @@ public:
 	public:
 		virtual const char* what() const throw();
 	};
+
 	class GradeTooLowException : public std::exception{
 	public:
 		virtual const char* what() const throw();
 	};
+
 	std::string 		getName() const;
 	int					getGrade() const;
 	void 				incrementGrade();
 	void 				decrementGrade();
 	void 				signForm(Form& form);
 	void 				executeForm(Form const & form) const;
+
 };
 
 std::ostream& operator<<(std::ostream& o, const Bureaucrat& obj);

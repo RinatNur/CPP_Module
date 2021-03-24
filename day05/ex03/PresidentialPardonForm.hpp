@@ -11,7 +11,9 @@
 
 class PresidentialPardonForm : public Form {
 private:
+
 	std::string 	szTarget_;
+
 public:
 
 	PresidentialPardonForm(const std::string& szTarget);

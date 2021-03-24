@@ -20,10 +20,11 @@ public:
 	Intern& operator=(const Intern&);
 	virtual ~Intern();
 
-class FormIsNotFound : public std::exception{
-public:
-	const char* what() const throw();
-};
+	class FormIsNotFound : public std::exception{
+	public:
+		const char* what() const throw();
+	};
+
 	Form* 	makeForm(const std::string&, const std::string&);
 
 private:
@@ -31,6 +32,5 @@ private:
 	Form*	form_arr_[3];
 
 };
-
 
 #endif //DAY05_INTERN_HPP

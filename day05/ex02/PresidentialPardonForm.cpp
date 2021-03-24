@@ -3,6 +3,8 @@
 //
 
 #include "PresidentialPardonForm.hpp"
+#include "../ex03/PresidentialPardonForm.hpp"
+
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& szTarget)
 		: Form("PresidentialPardonForm", 25, 5), szTarget_(szTarget){}

@@ -19,6 +19,16 @@ class A : public Base {};
 class B : public Base {};
 class C : public Base {};
 
+void printHeader(std::string header)
+{
+	std::cout	<< "\033[1;35m"
+				 << "<<<<< "
+				 << header
+				 << " >>>>>"
+				 << "\033[0m"
+				 << std::endl;
+}
+
 Base * generate(void)
 {
 	int 	num = rand() % 3;
@@ -31,22 +41,24 @@ Base * generate(void)
 
 void identify_from_pointer(Base * p)
 {
-	if((typeid(A) == typeid(*p)))
+	if(!(dynamic_cast<A*>(p) == nullptr))
 		std::cout << "A\n";
-	else if((typeid(B) == typeid(*p)))
+	else if(!(dynamic_cast<B*>(p) == nullptr))
 		std::cout << "B\n";
-	else if((typeid(C) == typeid(*p)))
+	else if(!(dynamic_cast<C*>(p) == nullptr))
 		std::cout << "C\n";
 }
 
 void identify_from_reference(Base & p)
 {
-	if((typeid(A) == typeid(p)))
+	if(!(dynamic_cast<A*>(&p) == nullptr))
 		std::cout << "A\n";
-	else if((typeid(B) == typeid(p)))
+	else if(!(dynamic_cast<B*>(&p) == nullptr))
 		std::cout << "B\n";
-	else if((typeid(C) == typeid(p)))
+	else if(!(dynamic_cast<C*>(&p) == nullptr))
 		std::cout << "C\n";
+	//second solution
+//	identify_from_pointer(&p);
 }
 
 int main()
@@ -56,7 +68,10 @@ int main()
 	Base*	base;
 
 	base = generate();
+	printHeader("Identify from pointer");
 	identify_from_pointer(base);
+
+	printHeader("Identify from reference");
 	identify_from_reference(*base);
 	delete base;
 

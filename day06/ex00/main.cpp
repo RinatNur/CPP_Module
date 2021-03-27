@@ -2,36 +2,36 @@
 // Created by Rinat Nurutdinow on 3/25/21.
 //
 
-#include <iostream>
-#include <assert.h>
-#include <string>
-#include <fstream>
-#include <sstream>
+#include "Convert.hpp"
 
-
-void 			checkType(const std::string& C)
+void 			printAll(char c, int i, double d, float f)
 {
-	std::string s;
-	std::stringstream ss;
-	ss << C;
-	int i;
-	float f;
-	double d;
-	ss >> f;
-	if (ss.fail())
-		std::cout << "Failure" << std::endl;
-	else
-		std::cout << f << std::endl;
-
-//	std::string::size_type sz;
-//	char  c;
-//	d = std::char (C);
+	std::cout <<std::fixed<<std::setprecision(1);
+	std::cout << "char: " << c << std::endl;
+	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "double: " << d << std::endl;
 }
 
-int main()
+void 			typeChar(char c)
 {
-	std::string str = "54.3";
-	checkType(str);
+	int i = static_cast<int>(c);
+	double d = static_cast<double>(c);
+	float f = static_cast<float>(c);
+	printAll(c, i, d, f);
 
+}
+
+int main(int argc, char **argv)
+{
+//	if (argc != 2)
+//	{
+//		std::cout << "Argument's are not valid." << std::endl;
+//		return 0;
+//	}
+//	Convert		conv(argv[1]);
+//	std::cout << conv.getType() << std::endl;
+	for (char i = 0; i < 127; ++i)
+		std::cout << (int)i << "  " << i << std::endl;
 	return 0;
 }

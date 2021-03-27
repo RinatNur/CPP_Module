@@ -11,6 +11,9 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@clang++ $(FLAGS) $(SRC) -o $(NAME)
 
+%.o: %.cpp
+			clang++ $(FLAGS) -c $< -o $@
+
 clean:
 	@rm -f $(OBJ)
 

@@ -5,9 +5,6 @@
 #include <iostream>
 #include <typeinfo>
 
-//TODO change to dynamic cast
-//TODO Makefile
-
 class Base {
 public:
 
@@ -74,6 +71,5 @@ int main()
 	printHeader("Identify from reference");
 	identify_from_reference(*base);
 	delete base;
-
 	return 0;
 }

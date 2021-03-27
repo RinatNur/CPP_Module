@@ -24,7 +24,7 @@ struct Data{
 
 void * serialize(void)
 {
-	char *output = new char[2 * sizeof (string) + sizeof (int)];
+	char *output = new char[2 * sizeof (std::string) + sizeof (int)];
 	std::string   alphabet = "abcdefghijklmnopqrstuvwxyz";
 	srand(time(NULL));
 	int i = 0;
@@ -52,7 +52,6 @@ Data * deserialize(void * raw)
 
 int 	main()
 {
-
 	void* raw = serialize();
 	Data*  pData = deserialize(raw);
 
@@ -60,5 +59,8 @@ int 	main()
 	std::cout << "String 1: " << pData->str1 << std::endl;
 	std::cout << "Integer : " << pData->num << std::endl;
 	std::cout << "String 2: " << pData->str2 << std::endl;
+
+	delete reinterpret_cast<char*>(raw);
+	delete pData;
 	return 0;
 }

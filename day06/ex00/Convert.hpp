@@ -19,7 +19,8 @@ private:
 
 	std::string		szStr_;
 	int 			type_;
-
+	int 			impossible[4];
+	bool 			isNanOrInf_;
 	int				iValue_;
 	double 			dValue_;
 	float 			fValue_;
@@ -33,19 +34,33 @@ private:
 		CHAR,
 	};
 
-public:
+	enum Impossible {
+		INT_Impossible,
+		Float_Impossible,
+	};
 
-	Convert(const std::string&);
-	Convert(const Convert &);
-	Convert &operator=(const Convert &);
-	~Convert() {};
-
+	bool	isNanOrInf(std::stringstream& ss);
+	bool	checkOverflow();
 	void 	parser();
 	void 	fromInt();
 	void 	fromChar();
 	void 	fromDouble();
 	void 	fromFloat();
+
+public:
+
+	Convert(const std::string& szStr);
+	Convert(const Convert &);
+	Convert &operator=(const Convert &);
+	~Convert();
+
 	std::string 	getType() const;
+	int				getIvalue() const;
+	double			getDvalue() const;
+	float			getFvalue() const;
+	char			getCvalue() const;
+	bool			getIsNanOrInf() const;
+	void 	printAll();
 
 };
 

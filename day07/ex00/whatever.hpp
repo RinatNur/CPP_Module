@@ -9,10 +9,9 @@
 #include <string>
 
 template <typename T>
-void swap(T& first, T& second)
+void swap(T &first, T &second)
 {
-	T	tmp;
-	tmp = first;
+	T	tmp = first;
 	first = second;
 	second = tmp;
 }
@@ -20,17 +19,14 @@ void swap(T& first, T& second)
 template <typename T>
 T min(T first, T second)
 {
-	if (first < second)
-		return first;
-	return second;
+	return (first < second) ? first : second;
 }
 
 template <typename T>
 T max(T first, T second)
 {
-	if (first > second)
-		return first;
-	return second;
+	return (first > second) ? first : second;
+
 }
 
 #endif //DAY07_WHATEVER_HPP

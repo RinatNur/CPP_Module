@@ -14,6 +14,20 @@ void printHeader(std::string header)
 				 << std::endl;
 }
 
+class Awesome {
+public:
+	Awesome( int n ) : _n( n ) {}
+	bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+	bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+	bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+	bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+	bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+	bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+	int getN() const { return this->_n; }
+private:
+	int _n;
+};
+
 int 	main()
 {
 	{
@@ -55,5 +69,21 @@ int 	main()
 		std::cout << "min( c, d ) = " << ::min(c, d) << std::endl;
 		std::cout << "max( c, d ) = " << ::max(c, d) << std::endl;
 	}
+
+	{
+		printHeader("Test with class Awesome");
+		Awesome a(-3);
+		Awesome b(-10);
+
+		std::cout << "A: " << a.getN() << std::endl;
+		std::cout << "B: " << b.getN() << std::endl;
+		printHeader("Swap");
+		::swap(a, b);
+		std::cout << "A: " << a.getN() << std::endl;
+		std::cout << "B: " << b.getN() << std::endl;
+		std::cout << "Min is: " << min(a, b).getN() << std::endl;
+		std::cout << "Max is: " << max(a, b).getN() << std::endl;
+	}
+
 	return 0;
 }

@@ -20,7 +20,7 @@ public:
 	{
 		this->arr_ = new T[n]();
 	}
-	Array(const Array & objToCopyFrom) {
+	Array(const Array & objToCopyFrom) : arr_(nullptr), len(0) {
 		operator=(objToCopyFrom);
 	};
 	Array &operator=(const Array & objToAssign) {

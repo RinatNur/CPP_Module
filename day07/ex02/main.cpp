@@ -20,10 +20,9 @@ int 	main()
 	{
 		try {
 			Array<float> fArr(5);
-			Array<float> fTmp;
 			for (int i = 0; i < 5; ++i)
 				fArr[i] = i + 0.25;
-			fTmp = fArr;
+			Array<float> fTmp(fArr);
 			for (int i = 0; i < 5; ++i)
 				std::cout << fTmp[i] << std::endl;
 
@@ -61,10 +60,12 @@ int 	main()
 			for (int i = 0; i < 5; ++i)
 				std::cout << sTmp[i] << " ";
 			std::cout << std::endl;
+			std::cout << "len of array = " << sTmp.size() << std::endl;
 		}
 		catch (std::exception& e) {
 			std::cout << e.what() << std::endl;
 		}
+
 	}
 	printHeader("Test with error index");
 	{

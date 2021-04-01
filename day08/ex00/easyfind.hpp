@@ -11,6 +11,7 @@
 #include <set>
 #include <list>
 #include <array>
+#include <array>
 
 template <typename T>
 typename T::iterator 	easyfind(T cont, int required)

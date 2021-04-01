@@ -15,7 +15,7 @@ private:
 	int	len;
 
 public:
-	Array() {};
+	Array() : arr_(nullptr), len(0) {};
 	Array(unsigned int n) : arr_(nullptr), len(n)
 	{
 		this->arr_ = new T[n]();
@@ -24,6 +24,8 @@ public:
 		operator=(objToCopyFrom);
 	};
 	Array &operator=(const Array & objToAssign) {
+		if (this->len > 0)
+			delete [] this->arr_;
 		this->len = objToAssign.len;
 		this->arr_ = new T[this->len];
 		for (int i = 0; i < objToAssign.len; ++i)

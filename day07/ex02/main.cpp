@@ -22,7 +22,10 @@ int 	main()
 			Array<float> fArr(5);
 			for (int i = 0; i < 5; ++i)
 				fArr[i] = i + 0.25;
-			Array<float> fTmp(fArr);
+			Array<float> fTmp(5);
+			for (int i = 0; i < 5; ++i)
+				fTmp[i] = i + 0.25;
+			fArr = fTmp;
 			for (int i = 0; i < 5; ++i)
 				std::cout << fTmp[i] << std::endl;
 
@@ -35,7 +38,7 @@ int 	main()
 	{
 		try {
 			Array<int> iArr(5);
-			Array<int> iTmp;
+			Array<int> iTmp(5);
 			for (int i = 0; i < 5; ++i)
 				iArr[i] = i + 3;
 			iTmp = iArr;

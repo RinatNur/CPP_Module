@@ -12,10 +12,11 @@ class span {
 private:
 
 	unsigned int 	nN_;
-	std::set<int>  iSet_;
+	std::multiset<int>  iSet_;
 
 public:
 
+	span();
 	span(unsigned int N);
 
 	span(const span &);
@@ -26,6 +27,7 @@ public:
 
 
 	void 	addNumber(int);
+	void 	addRange(int* start, int* end);
 	void 	printAll() const;
 	int 	shortestSpan() const;
 	int 	longestSpan() const;

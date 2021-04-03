@@ -28,7 +28,6 @@ public:
 
 	void 	addNumber(int);
 	void 	addRange(int* start, int* end);
-	void 	printAll() const;
 	int 	shortestSpan() const;
 	int 	longestSpan() const;
 };
